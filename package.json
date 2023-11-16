@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/HunterMuratore/project-3/issues"
   },
-  "homepage": "https://github.com/HunterMuratore/project-3#readme"
+  "homepage": "https://github.com/HunterMuratore/project-3#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
