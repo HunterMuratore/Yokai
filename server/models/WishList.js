@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const wishListSchema = new Schema({
     name: String,
-    produc: [
+    products: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Product'
@@ -14,6 +14,6 @@ const wishListSchema = new Schema({
     }
 });
 
-const WishList = model('WishList', wishListSchema);
+const Wishlist = model('Wishlist', wishListSchema);
 
-module.exports = WishList;
+module.exports = Wishlist;

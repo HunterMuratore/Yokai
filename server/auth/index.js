@@ -1,34 +1,36 @@
 const { sign, verify } = require('jsonwebtoken');
+
 const User = require('../models/User');
 
-async function creatToken(user_id) {
-
+async function createToken(user_id) {
     try {
         const token = await sign({ user_id }, process.env.JWT_SECRET);
 
         return token;
-    } catch (error) {
-        console.log(error.message);
+
+    } catch (err) {
+        console.log(err.message);
     }
 }
 
-async function authenticate({ req, res}) {
+// Send the user's cookie through for every request that they make
+async function authenticate({req, res}) {
     const token = req.cookies.token;
 
-    if (!token) return { res: res }
+    if (!token) return { res };
 
     try {
         const data = await verify(token, process.env.JWT_SECRET, {
-            maxAge: '1hr'
+            maxAge: '2hr'
         });
 
         const user = await User.findById(data.user_id).populate('wishlists');
 
-        return { user: user, res: res }
-    } catch(error) {
-        console.log('Unable to authentiacte user atuh/index')
-        return { res: res}
+        return { user, res };
+
+    } catch (err) {
+        return { res };
     }
 }
 
-module.exports = { creatToken, authenticate }
+module.exports = { createToken, authenticate }

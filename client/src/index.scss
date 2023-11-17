@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav {
+    a {
+        color: #000;
+        text-decoration: none;
+        &.active, &.hover {
+            text-decoration: underline;
+        }
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+    span {
+        margin-right: 10px;
+    }
+    p {
+        margin: 0 15px 0 0;
+        color: rgb(19, 136, 44);
+      }
+}

@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const { hash, compare } = require('bcrypt');
 
-const WishList = require('./WishList');
+const Wishlist = require('./Wishlist');
 const Product = require('./Product');
 
 const userSchema = new Schema({
@@ -27,10 +27,10 @@ const userSchema = new Schema({
         unique: true,
         minLength: [6, 'Password must be at least 6 characters long']
     },
-    wishList: [
+    wishlists: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'WishList'
+            ref: 'Wishlist'
         }
     ]
 }, {
