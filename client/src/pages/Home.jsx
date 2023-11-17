@@ -36,7 +36,7 @@ function Home() {
 
     return (
         <>
-            <Carousel fade>
+            <Carousel className="mt-3" fade>
                 <Carousel.Item interval={3000}>
                     <ExampleCarouselImage text="First slide" />
                     <Carousel.Caption></Carousel.Caption>
@@ -51,7 +51,7 @@ function Home() {
                 </Carousel.Item>
             </Carousel>
 
-            <div className="d-flex flex-wrap justify-content-between mt-3 mb-3">
+            <div className="d-flex flex-wrap justify-content-center mt-5 gap-4 my-3">
                 {products.map((product, index) => (
                     <Card key={index} style={{ width: '18rem' }} className="mb-3">
                         <ExampleCarouselImage />

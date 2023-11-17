@@ -1,6 +1,6 @@
 /* VARIABLES */
 $theme-dark: #FFC7C7;
-$theme-light: #FFE2E2;
+$theme-light: #f9d5d5;
 $theme-accent: #F6F6F6;
 $theme-text: #9e9d9d;
 
@@ -17,16 +17,9 @@ html,
 body,
 #root {
   height: 100vh;
-  background-color: $theme-accent;
-  display: flex;
-  flex-direction: column;
 }
 
 /* GLOBAL CLASSES */
-body {
-  background-color: $theme-dark;
-}
-
 #root {
   display: flex;
   flex-direction: column;
@@ -43,19 +36,25 @@ a {
 }
 
 .my-btn {
-    background-color: darken($theme-accent, 10%);
-    transition: background-color 0.2s ease-in-out;
+  background-color: darken($theme-light, 10%);
+  transition: background-color 0.2s ease-in-out;
+  border: none;
 
-    &:hover {
-      background-color: darken($theme-accent, 18%);
-    }
+  &:hover {
+    background-color: darken($theme-light, 18%);
+  }
 }
 
 /* CUSTOM CLASSES */
-nav {
+body {
+  background-color: $theme-accent;
+  color: $theme-text;
+}
+
+header {
   background-color: $theme-dark;
 
-  .navbar-nav {
+  nav {
     a {
       color: #000;
       text-decoration: none;
@@ -82,69 +81,18 @@ nav {
 }
 
 footer {
-  text-align: center;
-  margin-top: auto;
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    // margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-}
-
-.footerText {
-    margin-bottom: 0 !important;
-}
-
-
-.navbar-nav {
-    a {
-        color: #000;
-        text-decoration: none;
-
-        &.active,
-        &.hover {
-            text-decoration: underline;
-        }
-
-        &:not(:last-child) {
-            margin-right: 10px;
-        }
-    }
-
-    span {
-        margin-right: 10px;
-    }
-
-    p {
-        margin: 0 15px 0 0;
-        color: rgb(19, 136, 44);
-    }
-}
-
-.divider {
+  .divider {
     position: relative;
     left: 25%;
     width: 50%;
-}
+  }
 
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: auto;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
 
-.carimg {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.copyright {
+  .copyright {
     font-size: 12px;
-}
+  }
 }

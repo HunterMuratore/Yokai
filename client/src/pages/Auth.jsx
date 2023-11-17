@@ -146,7 +146,7 @@ function Auth({ isLogin }) {
                             </>)}
                     </div>
                     
-                    <Button variant="primary" type="submit">
+                    <Button className="my-btn" type="submit">
                         Submit
                     </Button>
                 </Form>
