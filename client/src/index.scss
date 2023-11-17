@@ -39,13 +39,21 @@ a {
   color: $theme-text;
 }
 
-.my-btn {
+.my-btn,
+.my-btn:active,
+.my-btn:focus,
+.my-btn.focus {
   background-color: darken($theme-light, 10%);
   transition: background-color 0.2s ease-in-out;
   border: none;
 
-  &:hover {
-    background-color: darken($theme-light, 18%);
+  &:hover,
+  &.open {
+    background-color: darken($theme-light, 15%);
+  }
+
+  + .dropdown-menu a:hover {
+    background-color: darken($theme-light, 10%);
   }
 }
 

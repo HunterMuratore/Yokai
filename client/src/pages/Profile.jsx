@@ -7,6 +7,12 @@ function Profile() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = (nextOpenState, event, metadata) => {
+    setIsOpen(nextOpenState);
+  };
+
   const fetchCategories = async () => {
     try {
       const response = await fetch('https://api.escuelajs.co/api/v1/categories');
@@ -55,8 +61,8 @@ function Profile() {
 
   return (
     <section>
-      <Dropdown>
-        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+      <Dropdown show={isOpen} onToggle={handleToggle}>
+      <Dropdown.Toggle className={`my-btn ${isOpen ? 'open' : ''}`} id="dropdown-basic">
           Browse Categories
         </Dropdown.Toggle>
 
