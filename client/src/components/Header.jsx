@@ -45,10 +45,13 @@ function Header() {
                             {user ? (
                                 <>
                                     <p>Welcome, <span className="username">{user.username}</span></p>
+                                    <NavLink to="/">Home</NavLink>
+                                    <NavLink to="/profile">Profile</NavLink>
                                     <a href="/" onClick={logout}>Log Out</a>
                                 </>
                             ) : (
                                 <>
+                                    <NavLink to="/">Home</NavLink>
                                     <NavLink to="/register">Register</NavLink>
                                     {isMobile ? '' : <span>or</span>}
                                     <NavLink to="/login">Log In</NavLink>
