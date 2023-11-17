@@ -1,24 +1,87 @@
+/* VARIABLES */
+$theme-dark: #FFC7C7;
+$theme-light: #FFE2E2;
+$theme-accent: #F6F6F6;
+$theme-text: #9e9d9d;
+
+/* RESETS */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.4;
+  font-family: sans-serif;
 }
 
-.navbar-nav {
+html,
+body,
+#root {
+  height: 100vh;
+  background-color: $theme-accent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* GLOBAL CLASSES */
+body {
+  background-color: $theme-dark;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 0 2%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.my-btn {
+    background-color: darken($theme-accent, 10%);
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: darken($theme-accent, 18%);
+    }
+}
+
+/* CUSTOM CLASSES */
+nav {
+  background-color: $theme-dark;
+
+  .navbar-nav {
     a {
-        color: #000;
-        text-decoration: none;
-        &.active, &.hover {
-            text-decoration: underline;
-        }
-        &:not(:last-child) {
-            margin-right: 10px;
-        }
-    }
-    span {
-        margin-right: 10px;
-    }
-    p {
-        margin: 0 15px 0 0;
-        color: rgb(19, 136, 44);
+      color: #000;
+      text-decoration: none;
+
+      &.active,
+      &.hover {
+        text-decoration: underline;
       }
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+
+    span {
+      margin-right: 10px;
+    }
+
+    p {
+      margin: 0 15px 0 0;
+      color: $theme-text;
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
 }
