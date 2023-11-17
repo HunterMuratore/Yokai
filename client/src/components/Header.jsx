@@ -48,6 +48,7 @@ function Header() {
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/profile">Profile</NavLink>
                                     <a href="/" onClick={logout}>Log Out</a>
+                                    <a href="/Profile">Profile</a>
                                 </>
                             ) : (
                                 <>
