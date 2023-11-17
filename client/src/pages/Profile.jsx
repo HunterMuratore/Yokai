@@ -61,7 +61,7 @@ function Profile() {
 
   return (
     <section>
-      <Dropdown show={isOpen} onToggle={handleToggle}>
+      <Dropdown className="mt-5" show={isOpen} onToggle={handleToggle}>
       <Dropdown.Toggle className={`my-btn ${isOpen ? 'open' : ''}`} id="dropdown-basic">
           Browse Categories
         </Dropdown.Toggle>
@@ -75,7 +75,7 @@ function Profile() {
         </Dropdown.Menu>
       </Dropdown>
 
-      <div className="row">
+      <div className="row mt-2">
         {products.map((product) => (
           <div className="col-md-4 mb-3" key={product.id}>
             <Card>
@@ -95,73 +95,3 @@ function Profile() {
 }
 
 export default Profile;
-
-// import React, { useState, useEffect } from 'react';
-// import Dropdown from "react-bootstrap/Dropdown";
-// import Card from 'react-bootstrap/Card';
-
-// function Profile() {
-//   const [selectedCategory, setSelectedCategory] = useState("");
-//   const [products, setPorducts] = useState([]);
-
-//   const fetchProducts = async (category) => {
-//     try {
-//       const response = await fetch(
-//         `https://fakeapi.platzi.com/category/${category}`
-//       );
-
-//       if (!response.ok) throw new Error("falied to get products");
-
-//       const data = await response.json();
-//       setPorducts(data);
-//     } catch (error) {
-//       console.log("could not initate fetch");
-//     }
-//   };
-
-//   useEffect(() => {
-//     if (selectedCategory) {
-//       fetchProducts(selectedCategory);
-//     }
-//   }, [selectedCategory]);
-
-//   const handleCategory = (category) => {
-//     setSelectedCategory(category);
-//   };
-
-//   return (
-//     <section>
-//       <Dropdown>
-//         <Dropdown.Toggle variant="primary" id="dropdown-basic">
-//           Browse Categories
-//         </Dropdown.Toggle>
-
-//         <Dropdown.Menu>
-//         <Dropdown.Item onClick={() => handleCategory('clothes')}>Clothes</Dropdown.Item>
-//           <Dropdown.Item onClick={() => handleCategory('Electronics')}>Electronics</Dropdown.Item>
-//           <Dropdown.Item onClick={() => handleCategory('Furniture')}>Furniture</Dropdown.Item>
-//           <Dropdown.Item onClick={() => handleCategory('Shoes')}>Shoes</Dropdown.Item>
-//           <Dropdown.Item onClick={() => handleCategory('Miascellaneous')}>Miscellaneous</Dropdown.Item>
-//         </Dropdown.Menu>
-//       </Dropdown>
-
-//       <div className="row">
-//         {products.map((product) => (
-//           <div className="col-md-4 mb-3" key={product.id}>
-//             <Card>
-//               <Card.Img variant="top" src={product.image} alt={product.name} />
-//               <Card.Body>
-//                 <Card.Title>{product.name}</Card.Title>
-//                 <Card.Text>
-//                   Price: {product.price}
-//                 </Card.Text>
-//               </Card.Body>
-//             </Card>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Profile;
