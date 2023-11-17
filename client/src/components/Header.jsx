@@ -47,6 +47,7 @@ function Header() {
                                 <>
                                     <p>{user.username}</p>
                                     <a href="/" onClick={logout}>Log Out</a>
+                                    <a href="/Profile">Profile</a>
                                 </>
                             ) : (
                                 <>
