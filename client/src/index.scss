@@ -30,6 +30,10 @@ main {
   padding: 0 2%;
 }
 
+section {
+  padding: 0 5%;
+}
+
 a {
   text-decoration: none;
   color: $theme-text;
@@ -56,7 +60,6 @@ header {
 
   nav {
     a {
-      color: #000;
       text-decoration: none;
 
       &.active,
@@ -75,14 +78,16 @@ header {
 
     p {
       margin: 0 15px 0 0;
-      color: $theme-text;
+
+      span {
+        color: $theme-accent;
+      }
     }
   }
 }
 
 footer {
   .divider {
-    position: relative;
     left: 25%;
     width: 50%;
   }
@@ -90,7 +95,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: auto;
 
   .copyright {
     font-size: 12px;
