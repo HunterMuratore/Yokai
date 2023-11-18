@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useStore } from "../store";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import Wishlist from "../components/Wishlist";
+import Modal from "react-bootstrap/Modal";
+// import Button from "react-bootstrap/Button";
 
 function Profile() {
+  const { user } = useStore();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [userId, setUserId] = useState("");
+  const [showWishlists, setShowWishlists] = useState(false);
 
-  const [showForm, setShowFrom] = useState(false);
+  useEffect(() => {
+    if (user && user._id) {
+      setUserId(user._id);
+    }
+  }, [user]);
 
   const fetchCategories = async () => {
     try {
@@ -57,16 +67,24 @@ function Profile() {
     setSelectedCategory(category);
     console.log(category.id);
   };
-
-  const handleAddWishList = () => {
-    setShowFrom(true);
+  const toggleWishlist = () => {
+    setShowWishlists(!showWishlists);
   };
 
-  const handleCloseForm = () => {
-    setShowFrom(false);
-  };
   return (
     <section>
+      <div>
+        <div>
+          <button className="my-btn" onClick={toggleWishlist}>
+            My Wishlists
+          </button>
+          {showWishlists && (
+            <div>
+              <Wishlist userId={userId} />
+            </div>
+          )}
+        </div>
+      </div>
       <Dropdown>
         <Dropdown.Toggle variant="primary" id="dropdown-basic">
           Browse Categories
@@ -83,16 +101,6 @@ function Profile() {
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      <div className="wishlist">
-        <button className="my-btn" onClick={handleAddWishList}>
-          Add a Wishlist
-        </button>
-      </div>
-      {showForm && (
-        <div className="wishlist-container">
-          <Wishlist handleClose={handleCloseForm} />
-        </div>
-      )}
       <div className="row">
         {products.map((product) => (
           <div className="col-md-4 mb-3" key={product.id}>
@@ -110,8 +118,6 @@ function Profile() {
           </div>
         ))}
       </div>
-     
-      
     </section>
   );
 }

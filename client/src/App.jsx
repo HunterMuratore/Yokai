@@ -54,7 +54,7 @@ function App() {
               <Route path='/' element={<Home />}></Route>
               <Route path='/login' element={<Auth isLogin={true} />}></Route>
               <Route path='/register' element={<Auth isLogin={false} />}></Route>
-              <Route path='/profile' element={<Profile />}></Route>
+              <Route path='/profile' element={<Profile userData={userData} />}></Route>
               <Route path='/user' element={<User />}></Route>
 
               <Route path='*' element={<NotFound />}></Route>
