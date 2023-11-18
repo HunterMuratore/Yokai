@@ -33,7 +33,8 @@ const LOGIN_USER = gql`
     mutation LoginUser($identifier: String!, $password: String!) {
         login(identifier: $identifier, password: $password) {
             _id
-            identifier
+            email
+            username
             wishlists {
                 _id
                 name
@@ -93,7 +94,7 @@ function Auth({ isLogin }) {
                             <Form.Group className="mb-3" controlId="formBasicIdentifier">
                                 <Form.Label>Username or Email:</Form.Label>
                                 <Form.Control
-                                    type="identifier"
+                                    type="text"
                                     name="identifier"
                                     value={formData.identifier}
                                     onChange={handleInputChange}
@@ -105,7 +106,7 @@ function Auth({ isLogin }) {
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username:</Form.Label>
                                 <Form.Control
-                                    type="username"
+                                    type="text"
                                     name="username"
                                     value={formData.username}
                                     onChange={handleInputChange}
@@ -145,7 +146,7 @@ function Auth({ isLogin }) {
                             </>)}
                     </div>
                     
-                    <Button variant="primary" type="submit">
+                    <Button className="my-btn" type="submit">
                         Submit
                     </Button>
                 </Form>

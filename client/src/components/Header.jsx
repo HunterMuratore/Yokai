@@ -36,20 +36,23 @@ function Header() {
 
     return (
         <header>
-            <Navbar expand="lg" className="">
+            <Navbar expand="lg">
                 <Container>
                     <Navbar.Brand href="/">Wish List</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <NavLink to="/">Home</NavLink>
                             {user ? (
                                 <>
-                                    <p>{user.username}</p>
+                                    <p>Welcome, <span className="username">{user.username}</span></p>
+                                    <NavLink to="/">Home</NavLink>
+                                    <NavLink to="/profile">Profile</NavLink>
                                     <a href="/" onClick={logout}>Log Out</a>
+                                    <a href="/Profile">Profile</a>
                                 </>
                             ) : (
                                 <>
+                                    <NavLink to="/">Home</NavLink>
                                     <NavLink to="/register">Register</NavLink>
                                     {isMobile ? '' : <span>or</span>}
                                     <NavLink to="/login">Log In</NavLink>
