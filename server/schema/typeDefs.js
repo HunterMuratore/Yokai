@@ -17,6 +17,7 @@ const typeDefs = gql`
 
     type Query {
         authenticate: User
+        getWishlists: [Wishlist]
     }
 
     type Mutation {
