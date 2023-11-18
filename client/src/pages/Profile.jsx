@@ -81,7 +81,7 @@ function Profile() {
     <section>
       <div>
         <div>
-          <button className="my-btn" onClick={toggleWishlist}>
+          <button className="my-btn my-5" onClick={toggleWishlist}>
             My Wishlists
           </button>
           {showWishlists && (
@@ -92,7 +92,7 @@ function Profile() {
         </div>
       </div>
       <Dropdown>
-        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+        <Dropdown.Toggle className="my-btn my-3" id="dropdown-basic">
           Browse Categories
         </Dropdown.Toggle>
 

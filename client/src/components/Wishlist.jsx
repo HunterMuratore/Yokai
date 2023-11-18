@@ -74,7 +74,7 @@ function Wishlist({ handleClose, userId }) {
       alert("Wishlist Deleted! Congrats?");
       refetch();
     } catch (error) {
-      console.error("Failed to delete wishlit, this is for the best");
+      console.error("Failed to delete wishlist, this is for the best");
     }
   };
 
@@ -142,7 +142,7 @@ function Wishlist({ handleClose, userId }) {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container">
       <div className="row">
         <div className="col">
           <div className="d-flex justify-content-between mb-3">
@@ -181,7 +181,7 @@ function Wishlist({ handleClose, userId }) {
                     <p>{wishlist.name}</p>
                     <div>
                       <button
-                        className="btn btn-warning mr-2"
+                        className="my-btn mr-2"
                         onClick={() =>
                           handleUpdateWishlist(wishlist._id, wishlist.name)
                         }
@@ -189,7 +189,7 @@ function Wishlist({ handleClose, userId }) {
                        <FontAwesomeIcon icon={faEdit} />
                       </button>
                       <button
-                        className="btn btn-danger"
+                        className="my-btn"
                         onClick={() => handleDeleteWhishlist(wishlist._id)}
                       >
                         <FontAwesomeIcon icon={faTrash} />
@@ -204,25 +204,25 @@ function Wishlist({ handleClose, userId }) {
       </div>
 
       {showForm && (
-        <div className="row mt-4">
+        <div className="row my-4">
           <div className="col">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="wishlistName">Wishlist Name:</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control wishlist-name-input mb-2"
                   id="wishlistName"
                   value={wishlistName}
                   onChange={handleInputChange}
                   required
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="my-btn me-2">
                 Create Wishlist
               </button>
               <button
-                className="btn btn-secondary ml-2"
+                className="my-btn ml-2"
                 onClick={handleCreateToggle}
               >
                 Cancel

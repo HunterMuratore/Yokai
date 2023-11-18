@@ -46,6 +46,8 @@ a {
   background-color: darken($theme-light, 10%);
   transition: background-color 0.2s ease-in-out;
   border: none;
+  border-radius: 6px;
+  padding: 5px;
 
   &:hover,
   &.open {
@@ -107,4 +109,8 @@ footer {
   .copyright {
     font-size: 12px;
   }
+}
+
+.wishlist-name-input {
+  max-width: 250px;
 }
