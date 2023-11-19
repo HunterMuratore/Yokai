@@ -3,6 +3,8 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
+import Alert from "./Alert";
+
 const GET_WISHLISTS = gql`
   query GetWishlists {
     getWishlists {
@@ -42,6 +44,7 @@ function Wishlist({ handleClose, userId }) {
   const [showForm, setShowForm] = useState(false);
   const [editMode, setEditMode] = useState({ id: "", edit: false });
   const [wishlists, setWishlists] = useState([]);
+  const [alertMessage, setAlertMessage] = useState("");
   const { loading, error, data, refetch } = useQuery(GET_WISHLISTS);
   const [CreateWishlistMutation] = useMutation(CREATE_WISHLIST);
   const [UpdateWishlistMutation] = useMutation(UPDATE_WISHLIST);
@@ -64,14 +67,21 @@ function Wishlist({ handleClose, userId }) {
     },
   });
 
+  const showAlert = (message) => {
+    setAlertMessage(message);
+    // Reset alert message after 3 seconds
+    setTimeout(() => {
+      setAlertMessage("");
+    }, 3000);
+  };
+
   const handleDeleteWhishlist = async (wishlistId) => {
     try {
       const result = await DeleteWishlistMutation({
         variables: { id: wishlistId },
       });
-      console.log(result);
 
-      alert("Wishlist Deleted! Congrats?");
+      showAlert("Wishlist Deleted! Congrats?");
       refetch();
     } catch (error) {
       console.error("Failed to delete wishlist, this is for the best");
@@ -79,7 +89,6 @@ function Wishlist({ handleClose, userId }) {
   };
 
   useEffect(() => {
-    console.log("called", data);
     if (!loading && data && data.getWishlists) {
       setWishlists(data.getWishlists);
     }
@@ -88,7 +97,6 @@ function Wishlist({ handleClose, userId }) {
   const handleUpdateWishlist = (wishlistId, wishlistName) => {
     setEditMode({ id: wishlistId, edit: true });
     setWishlistName(wishlistName);
-    console.log("wishlist updated");
   };
 
   const handleInputChange = (e) => {
@@ -106,8 +114,7 @@ function Wishlist({ handleClose, userId }) {
         },
       });
 
-      console.log(result);
-      alert("wishlist Updated");
+      showAlert("Wishlist Updated!");
       setEditMode({ id: '', edit: false})
       refetch();
     } catch (error) {
@@ -128,8 +135,7 @@ function Wishlist({ handleClose, userId }) {
         },
       });
 
-      console.log(result);
-      alert(`Wishlist ${result.data.createWishlist.name} created!`);
+      showAlert(`Wishlist '${result.data.createWishlist.name}' created!`);
       setShowForm(false);
       refetch();
     } catch (error) {
@@ -142,7 +148,7 @@ function Wishlist({ handleClose, userId }) {
   };
 
   return (
-    <div className="container">
+    <div className="container wishlists">
       <div className="row">
         <div className="col">
           <div className="d-flex justify-content-between mb-3">
@@ -154,8 +160,8 @@ function Wishlist({ handleClose, userId }) {
               Create Wishlist
             </button>
           </div>
-
-          <div className="list-group">
+          <div>{alertMessage && <Alert message={alertMessage} onClose={() => setAlertMessage("")} />}</div>
+          <div className="wishlist-list list-group rounded">
             {wishlists.map((wishlist) => (
               <div
                 key={wishlist._id}
@@ -170,16 +176,16 @@ function Wishlist({ handleClose, userId }) {
                       onChange={handleInputChange}
                     />
                     <button
-                      className="btn btn-primary mt-2"
+                      className="my-btn mt-2"
                       onClick={() => handleEditSubmit(wishlist._id)}
                     >
                       Save
                     </button>
                   </div>
                 ) : (
-                  <div>
-                    <p>{wishlist.name}</p>
-                    <div>
+                  <div className="wishlist w-100 rounded">
+                    <p className="wishlist-name">{wishlist.name}</p>
+                    <div className="ms-auto">
                       <button
                         className="my-btn mr-2"
                         onClick={() =>
@@ -189,7 +195,7 @@ function Wishlist({ handleClose, userId }) {
                        <FontAwesomeIcon icon={faEdit} />
                       </button>
                       <button
-                        className="my-btn"
+                        className="my-btn ms-2"
                         onClick={() => handleDeleteWhishlist(wishlist._id)}
                       >
                         <FontAwesomeIcon icon={faTrash} />

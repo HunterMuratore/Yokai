@@ -108,6 +108,21 @@ form {
   }
 }
 
+.wishlists {
+  .wishlist {
+    border: $theme-text 1px solid;
+    padding: 10px;
+  }
+  .wishlist-name {
+    font-weight: 700;
+  }
+  .alert {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+}
+
 footer {
   .divider {
     left: 25%;
