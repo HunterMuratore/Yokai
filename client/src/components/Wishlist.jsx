@@ -211,7 +211,7 @@ function Wishlist({ handleClose, userId }) {
                 <label htmlFor="wishlistName">Wishlist Name:</label>
                 <input
                   type="text"
-                  className="form-control wishlist-name-input mb-2"
+                  className="form-control mb-2"
                   id="wishlistName"
                   value={wishlistName}
                   onChange={handleInputChange}

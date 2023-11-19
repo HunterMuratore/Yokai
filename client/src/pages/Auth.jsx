@@ -83,7 +83,7 @@ function Auth({ isLogin }) {
 
     return (
         <>
-            <section>
+            <section className='auth'>
                 <Form onSubmit={handleSubmit}>
                     <h2 className="text-center mt-5">{isLogin ? 'Log In' : 'Register'}</h2>
 

@@ -43,11 +43,12 @@ a {
 .my-btn:active,
 .my-btn:focus,
 .my-btn.focus {
-  background-color: darken($theme-light, 10%);
+  background-color: darken($theme-light, 10%) !important;
   transition: background-color 0.2s ease-in-out;
   border: none;
   border-radius: 6px;
   padding: 5px;
+  color: $theme-accent;
 
   &:hover,
   &.open {
@@ -96,6 +97,17 @@ header {
   }
 }
 
+form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.auth {
+  a {
+    color: darken($theme-dark, 15%);
+  }
+}
+
 footer {
   .divider {
     left: 25%;
@@ -109,8 +121,4 @@ footer {
   .copyright {
     font-size: 12px;
   }
-}
-
-.wishlist-name-input {
-  max-width: 250px;
 }
