@@ -4,18 +4,28 @@ const Wishlist = require("../../models/Wishlist");
 const wishlist_resolvers = {
   Query: {
     async getWishlists(_, __, context) {
-      if (!context || !context.user || !context.user._id)
+      if (!context || !context.user || !context.user._id) {
         throw new Error("User not logged in");
+      }
 
       try {
         const wishlists = await Wishlist.find({ user: context.user._id });
-
         return wishlists;
       } catch (error) {
-        console.error("error fetching wishlists");
+        console.error("Error fetching wishlists:", error);
+      }
+    },
+
+    async getAllWishlists(_, __, context) {
+      try {
+        const wishlists = await Wishlist.find();
+        return wishlists;
+      } catch (error) {
+        console.error("Error fetching all wishlists:", error);
       }
     },
   },
+
 
   Mutation: {
     async createWishlist(_, { name }, context) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash, faCaretDown, faCreditCard } from "@fortawesome/free-solid-svg-icons";
@@ -45,6 +45,7 @@ function Wishlist({ handleClose, userId }) {
   const [editMode, setEditMode] = useState({ id: "", edit: false });
   const [wishlists, setWishlists] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
+  const [visibleProducts, setVisibleProducts] = useState({});
   const { loading, error, data, refetch } = useQuery(GET_WISHLISTS);
   const [CreateWishlistMutation] = useMutation(CREATE_WISHLIST);
   const [UpdateWishlistMutation] = useMutation(UPDATE_WISHLIST);
@@ -142,6 +143,13 @@ function Wishlist({ handleClose, userId }) {
     }
   };
 
+  const handleToggleProducts = (wishlistId) => {
+    setVisibleProducts((prevVisibleProducts) => ({
+      ...prevVisibleProducts,
+      [wishlistId]: !prevVisibleProducts[wishlistId],
+    }));
+  };
+
   const handleCreateToggle = () => {
     setShowForm(!showForm);
   };
@@ -150,8 +158,7 @@ function Wishlist({ handleClose, userId }) {
     <div className="container wishlists">
       <div className="row">
         <div className="col">
-          <div className="d-flex justify-content-between mb-3">
-            <h3>Wishlist Items</h3>
+          <div className="d-flex justify-content-center mb-2">
             <button
               className="my-btn"
               onClick={handleCreateToggle}
@@ -159,6 +166,7 @@ function Wishlist({ handleClose, userId }) {
               Create Wishlist
             </button>
           </div>
+
           <div>{alertMessage && <Alert message={alertMessage} onClose={() => setAlertMessage("")} />}</div>
 
           {showForm && (
@@ -190,7 +198,7 @@ function Wishlist({ handleClose, userId }) {
             </div>
           )}
 
-          <div className="wishlist-list col rounded">
+          <div className="wishlist-list rounded">
             {wishlists.map((wishlist) => (
               <div
                 key={wishlist._id}
@@ -212,27 +220,29 @@ function Wishlist({ handleClose, userId }) {
                     </button>
                   </div>
                 ) : (
-                  <div className="wishlist col-sm-3 w-100 rounded">
+                  <div className="wishlist d-flex flex-column mx-auto mt-3 w-100 rounded">
                     <div className="d-flex">
                       <p className="wishlist-name">{wishlist.name}</p>
                       <FontAwesomeIcon className="wishlist-dropdown ms-2" icon={faCaretDown} />
+                      <div className="ms-auto">
+                        <button
+                          className="my-btn me-2"
+                          onClick={() =>
+                            handleUpdateWishlist(wishlist._id, wishlist.name)
+                          }
+                        >
+                          <FontAwesomeIcon icon={faEdit} />
+                        </button>
+                        <button
+                          className="my-btn"
+                          onClick={() => handleDeleteWhishlist(wishlist._id)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                      </div>
                     </div>
-                    <div className="ms-auto">
-                      <button
-                        className="my-btn mr-2"
-                        onClick={() =>
-                          handleUpdateWishlist(wishlist._id, wishlist.name)
-                        }
-                      >
-                        <FontAwesomeIcon icon={faEdit} />
-                      </button>
-                      <button
-                        className="my-btn ms-2"
-                        onClick={() => handleDeleteWhishlist(wishlist._id)}
-                      >
-                        <FontAwesomeIcon icon={faTrash} />
-                      </button>
-                    </div>
+
+                    <div className="products justify-content-center gap-4 mb-3">Products List</div>
                   </div>
                 )}
               </div>

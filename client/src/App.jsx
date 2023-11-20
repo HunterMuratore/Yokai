@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Protect from './components/Protect'
 
 import Home from './pages/Home'
 import Auth from './pages/Auth'
@@ -54,7 +55,9 @@ function App() {
               <Route path='/' element={<Home />}></Route>
               <Route path='/login' element={<Auth isLogin={true} />}></Route>
               <Route path='/register' element={<Auth isLogin={false} />}></Route>
-              <Route path='/profile' element={<Profile userData={userData} />}></Route>
+              <Route path='/profile' element={<Protect user={userData}>
+                <Profile userData={userData} />
+              </Protect>}></Route>
               <Route path='/user' element={<User />}></Route>
 
               <Route path='*' element={<NotFound />}></Route>

@@ -1,13 +1,12 @@
 import React from 'react';
-import testimg from '../assets/images/test-img.jpg'
 
-// ExampleCarouselImage component
-function ExampleCarouselImage(props) {
+function ExampleCarouselImage({ images }) {
     return (
         <div>
-            {/* Your image content or JSX for the carousel image */}
-            {/* For example: */}
-            <img className="carimg img-fluid" src={testimg} alt={props.altText} />
+            {/* Displaying multiple images in the carousel */}
+            {images && images.map((image, index) => (
+                <img key={index} className="carimg img-fluid" src={image} alt={`Slide ${index + 1}`} />
+            ))}
         </div>
     );
 }

@@ -1,10 +1,25 @@
-import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import ExampleCarouselImage from '../components/ExampleCarouselImage.jsx'; // Adjust the path as per your project's structure
+import clothes from '../assets/images/clothesUPD.png';
+import furinture from '../assets/images/furnitureUPD.png';
+import gaming from '../assets/images/gamingUPD.png';
+
+import { gql, useQuery } from "@apollo/client";
+
+const GET_ALL_WISHLISTS = gql`
+query getAllWishlists {
+    getAllWishlists {
+        _id
+        name
+        products
+        user
+    }
+}
+`
 
 function Home() {
+    const images = [clothes, furinture, gaming];
     const products = [
         {
             name: 'Product Name 1',
@@ -35,25 +50,24 @@ function Home() {
 
     return (
         <>
-            <Carousel className="mt-3" fade>
-                <Carousel.Item interval={3000}>
-                    <ExampleCarouselImage text="First slide" />
-                    <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={3000}>
-                    <ExampleCarouselImage text="Second slide" />
-                    <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <ExampleCarouselImage text="Third slide" />
-                    <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            <div className="carousel-container mt-4">
+                <Carousel fade>
+                    {images.map((image, index) => (
+                        <Carousel.Item key={index}>
+                            <img
+                                className="w-100"
+                                src={image}
+                                alt={`Slide ${index + 1}`}
+                            />
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+            </div>
 
-            <div className="d-flex flex-wrap justify-content-center mt-5 gap-4 my-3">
+            <div className="d-flex flex-wrap justify-content-center mt-4 gap-4 my-3">
                 {products.map((product, index) => (
                     <Card key={index} style={{ width: '18rem' }} className="mb-3">
-                        <ExampleCarouselImage />
+                        <Card.Img variant="top" src={gaming} />
                         <Card.Body>
                             <Card.Title>{product.name}</Card.Title>
                             <Card.Text>{product.description}</Card.Text>

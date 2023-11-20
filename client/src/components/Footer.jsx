@@ -15,15 +15,17 @@ function Footer() {
                     <span className="d-inline d-sm-none">Dev'd by Group 2</span>
                 </p>
                 <div className="d-flex align-items-center mb-1">
-                    <a href="https://github.com/Kev-Castro" target="_blank" rel="noopener noreferrer" className="text-dark me-3">
+                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-primary me-3">
                         <i className="fab fa-github"></i>
                     </a>
-                    <a href="https://github.com/Kev-Castro" target="_blank" rel="noopener noreferrer" className="text-dark me-3">
-                        <i className="fab fa-facebook"></i>
-
+                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-success me-3">
+                        <i className="fab fa-github"></i>
                     </a>
-                    <a href="https://github.com/Kev-Castro" target="_blank" rel="noopener noreferrer" className="text-dark ">
-                        <i className="fab fa-instagram"></i>
+                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-danger me-3">
+                        <i className="fab fa-github"></i>
+                    </a>
+                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-warning">
+                        <i className="fab fa-github"></i>
                     </a>
                 </div>
             </footer>

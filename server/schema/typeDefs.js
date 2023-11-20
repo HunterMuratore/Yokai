@@ -27,6 +27,7 @@ const typeDefs = gql`
     type Query {
         authenticate: User
         getWishlists: [Wishlist]
+        getAllWishlists: [Wishlist]
         getProducts: [Product]
     }
 
@@ -37,7 +38,7 @@ const typeDefs = gql`
         createWishlist(name: String!): Wishlist
         updateWishlist(id: ID!, name: String!): Wishlist
         deleteWishlist(id: ID!): Wishlist
-        createProduct(name: String!, productID: String!): Product
+        createProduct(name: String!, productId: Int!, wishlistId: ID!, image: String!, price: Int!): Product
     }
 `
 module.exports = typeDefs;

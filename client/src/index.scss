@@ -69,6 +69,10 @@ body {
 header {
   background-color: $theme-dark;
 
+  .logo {
+    height: 30px;
+  }
+
   nav {
     a {
       text-decoration: none;
@@ -76,12 +80,16 @@ header {
       &.active,
       &.hover {
         text-decoration: underline;
-        color: $theme-accent;
+        color: black;
       }
 
       &:not(:last-child) {
         margin-right: 10px;
       }
+    }
+
+    .username {
+      color: $theme-text;
     }
 
     .username,
@@ -114,6 +122,7 @@ form {
   .wishlist {
     border: $theme-text 1px solid;
     padding: 10px;
+    max-width: 650px;
   }
 
   .wishlist-name {
@@ -153,3 +162,14 @@ footer {
     font-size: 12px;
   }
 }
+
+
+// /* CSS */
+
+// /* Define the hover effect for the card */
+// .card:hover {
+//   /* Add desired styles when hovering over the card */
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Example: Add a shadow effect */
+//   transform: scale(1.05); /* Example: Increase size on hover */
+//   transition: all 0.3s ease; /* Smooth transition for the effect */
+// }

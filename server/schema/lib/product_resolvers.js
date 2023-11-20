@@ -15,30 +15,30 @@ const product_resolvers = {
     },
     
     Mutation: {
-                  async createProduct(_, args) {
-                try {
-        
-                    const existingProduct = await Product.findOne({ productId: args.productId });
-    
-                    let product;
-                    if (!existingProduct) {
-                        product = await Product.create(args); 
-                        product = existingProduct;
-                    }
-                    const updatedWishlist = await Wishlist.findByIdAndUpdate(
-                        args.wishlist_id,
-                        { $addToSet: { products: product.productId } },
-                        { new: true }
-                    );
-    
-                    return product;
-                } catch (error) {
-                    console.log('Error creating product:', error);
-                    throw error;
-                }
+        async createProduct(_, args) {
+            console.log(args)
+            try {
+              console.log('create product', args.productId);
+              let product = await Product.findOne({ productId: args.productId });
+            
+              if (!product) {
+                product = await Product.create(args);
+              }
+      
+              const updatedWishlist = await Wishlist.findByIdAndUpdate(
+                args.wishlistId,
+                { $addToSet: { products: product._id } },
+                { new: true }
+              );
+            
+              return product;
+            } catch (error) {
+              console.log('Error creating product:', error);
+              throw error;
             }
+          }
         }
-}
+      };
 
 
 module.exports = product_resolvers;
