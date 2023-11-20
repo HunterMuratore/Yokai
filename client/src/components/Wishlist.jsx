@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faCaretDown, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 import Alert from "./Alert";
 
@@ -30,7 +30,7 @@ const DELETE_WISHLIST = gql`
   }
 `;
 
-const UPDATE_WISHLIST = gql `
+const UPDATE_WISHLIST = gql`
 mutation UpdateWishlist($id: ID!, $name: String!) {
    updateWishlist(id: $id, name: $name) {
     _id
@@ -115,13 +115,12 @@ function Wishlist({ handleClose, userId }) {
       });
 
       showAlert("Wishlist Updated!");
-      setEditMode({ id: '', edit: false})
+      setEditMode({ id: '', edit: false })
       refetch();
     } catch (error) {
       console.error("Failed to update wihslist");
     }
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -161,7 +160,37 @@ function Wishlist({ handleClose, userId }) {
             </button>
           </div>
           <div>{alertMessage && <Alert message={alertMessage} onClose={() => setAlertMessage("")} />}</div>
-          <div className="wishlist-list list-group rounded">
+
+          {showForm && (
+            <div className="row my-4">
+              <div className="col">
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="wishlistName">Wishlist Name:</label>
+                    <input
+                      type="text"
+                      className="form-control mb-2"
+                      id="wishlistName"
+                      value={wishlistName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="my-btn me-2">
+                    Create Wishlist
+                  </button>
+                  <button
+                    className="my-btn ml-2"
+                    onClick={handleCreateToggle}
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+
+          <div className="wishlist-list col rounded">
             {wishlists.map((wishlist) => (
               <div
                 key={wishlist._id}
@@ -183,8 +212,11 @@ function Wishlist({ handleClose, userId }) {
                     </button>
                   </div>
                 ) : (
-                  <div className="wishlist w-100 rounded">
-                    <p className="wishlist-name">{wishlist.name}</p>
+                  <div className="wishlist col-sm-3 w-100 rounded">
+                    <div className="d-flex">
+                      <p className="wishlist-name">{wishlist.name}</p>
+                      <FontAwesomeIcon className="wishlist-dropdown ms-2" icon={faCaretDown} />
+                    </div>
                     <div className="ms-auto">
                       <button
                         className="my-btn mr-2"
@@ -192,7 +224,7 @@ function Wishlist({ handleClose, userId }) {
                           handleUpdateWishlist(wishlist._id, wishlist.name)
                         }
                       >
-                       <FontAwesomeIcon icon={faEdit} />
+                        <FontAwesomeIcon icon={faEdit} />
                       </button>
                       <button
                         className="my-btn ms-2"
@@ -208,35 +240,6 @@ function Wishlist({ handleClose, userId }) {
           </div>
         </div>
       </div>
-
-      {showForm && (
-        <div className="row my-4">
-          <div className="col">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="wishlistName">Wishlist Name:</label>
-                <input
-                  type="text"
-                  className="form-control mb-2"
-                  id="wishlistName"
-                  value={wishlistName}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <button type="submit" className="my-btn me-2">
-                Create Wishlist
-              </button>
-              <button
-                className="my-btn ml-2"
-                onClick={handleCreateToggle}
-              >
-                Cancel
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

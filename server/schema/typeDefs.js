@@ -4,6 +4,8 @@ const typeDefs = gql`
     type Wishlist {
         _id: ID
         name: String
+        products: [Product]
+        user: [User]
     }
 
     type User {
@@ -25,6 +27,7 @@ const typeDefs = gql`
     type Query {
         authenticate: User
         getWishlists: [Wishlist]
+        getProducts: [Product]
     }
 
     type Mutation {
