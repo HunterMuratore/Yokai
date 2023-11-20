@@ -91,7 +91,7 @@ function Wishlist({ handleClose, userId }) {
       showAlert("Wishlist Deleted! Congrats?")
       refetch()
     } catch (error) {
-      console.error("Failed to delete wishlist, this is for the best")
+      showAlert("Failed to delete wishlist, this is for the best")
     }
   }
 
@@ -125,7 +125,7 @@ function Wishlist({ handleClose, userId }) {
       setEditMode({ id: '', edit: false })
       refetch()
     } catch (error) {
-      console.error("Failed to update wihslist")
+      showAlert("Failed to update wihslist")
     }
   }
 
@@ -145,7 +145,7 @@ function Wishlist({ handleClose, userId }) {
       setShowForm(false)
       refetch()
     } catch (error) {
-      console.error("Failed to load wishlists")
+      showAlert("Failed to load wishlists")
     }
   }
 
