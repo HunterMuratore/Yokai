@@ -6,7 +6,16 @@ const user_resolvers = {
     Query: {
         authenticate(_, __, context) {
             return context.user;
-        }
+        },
+        async getUserById(_, { userId }) {
+            console.log('Received userId in resolver:', userId)
+            try {
+                const user = User.findById(userId).populate('wishlists')
+                return user
+            } catch (err) {
+                throw new Error('could not get user')
+            }
+        } 
     },
 
     Mutation: {

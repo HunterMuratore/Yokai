@@ -58,7 +58,7 @@ function App() {
               <Route path='/profile' element={<Protect user={userData}>
                 <Profile userData={userData} />
               </Protect>}></Route>
-              <Route path='/user' element={<User />}></Route>
+              <Route path='/user/:userId' element={<User />}></Route>
 
               <Route path='*' element={<NotFound />}></Route>
             </Routes>
