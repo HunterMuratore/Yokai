@@ -6,7 +6,6 @@ import { gql, useQuery, useMutation } from "@apollo/client"
 import Dropdown from "react-bootstrap/Dropdown"
 import Card from "react-bootstrap/Card"
 import Wishlist from "../components/Wishlist"
-import Modal from "react-bootstrap/Modal"
 
 const GET_WISHLISTS = gql`
   query getWishlists {
@@ -47,10 +46,6 @@ function Profile() {
   const { loading, error, data, refetch } = useQuery(GET_WISHLISTS)
   const [createProduct] = useMutation(CREATE_PRODUCT)
   const navigate = useNavigate()
-
-  const handleToggle = (nextOpenState, event, metadata) => {
-    setIsOpen(nextOpenState)
-  }
 
   const fetchCategories = async () => {
     try {
@@ -97,42 +92,33 @@ function Profile() {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category)
-    console.log(category.id)
   }
 
   function toLogin() {
     navigate('/login')
   }
+  
   const handleAddToWishlist = async (wishlistId, product) => {
     try {
-      console.log("clicked")
-      console.log(wishlistId)
       const { id: productId, title: name, price } = product
-      console.log(product)
-
-      console.log("Before createProduct mutation")
 
       const { data: createdProductData } = await createProduct({
         variables: {
-          productId: productId,
+          productId,
           wishlistId,
-          name: name,
+          name,
           image: product.images[0],
           price,
         },
       })
 
-      console.log("After createProduct mutation")
-
       if (createdProductData) {
-        console.log("Product added:", createdProductData.createProduct)
         setIsOpen(false)
       } else {
         console.log("No product added!")
       }
 
       setIsOpen(false)
-      console.log("added?")
     } catch (err) {
       console.error("Error adding product:", err)
     }

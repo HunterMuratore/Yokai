@@ -18,14 +18,13 @@ const product_resolvers = {
         async createProduct(_, args) {
             console.log(args)
             try {
-              console.log('create product', args.productId);
               let product = await Product.findOne({ productId: args.productId });
             
               if (!product) {
                 product = await Product.create(args);
               }
       
-              const updatedWishlist = await Wishlist.findByIdAndUpdate(
+              await Wishlist.findByIdAndUpdate(
                 args.wishlistId,
                 { $addToSet: { products: product._id } },
                 { new: true }

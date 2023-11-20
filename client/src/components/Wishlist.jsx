@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash, faCaretDown, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 import Alert from "./Alert";
 
