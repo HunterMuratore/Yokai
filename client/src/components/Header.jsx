@@ -53,7 +53,7 @@ function Header() {
                                 <>
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/register">Register</NavLink>
-                                    {isMobile ? '' : <span>/</span>}
+                                    {isMobile ? '' : <span className="slash">/</span>}
                                     <NavLink to="/login">Log In</NavLink>
                                 </>
                             )}

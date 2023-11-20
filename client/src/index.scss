@@ -55,7 +55,7 @@ a {
     background-color: darken($theme-light, 15%);
   }
 
-  + .dropdown-menu a:hover {
+  +.dropdown-menu a:hover {
     background-color: darken($theme-light, 10%);
   }
 }
@@ -76,6 +76,7 @@ header {
       &.active,
       &.hover {
         text-decoration: underline;
+        color: $theme-accent;
       }
 
       &:not(:last-child) {
@@ -83,7 +84,8 @@ header {
       }
     }
 
-    span {
+    .username,
+    .slash {
       margin-right: 10px;
     }
 
@@ -113,9 +115,23 @@ form {
     border: $theme-text 1px solid;
     padding: 10px;
   }
+
   .wishlist-name {
     font-weight: 700;
   }
+
+  .wishlist-dropdown {
+    background-color: darken($theme-light, 10%) !important;
+    border-radius: 3px;
+    padding: 2px 3px;
+    color: $theme-accent;
+
+    &:hover,
+    &.open {
+      background-color: darken($theme-light, 15%);
+    }
+  }
+
   .alert {
     border: 1px solid #ccc;
     padding: 10px;

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useStore } from "../store";
+import { useNavigate } from "react-router-dom";
+
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import Wishlist from "../components/Wishlist";
@@ -7,12 +9,12 @@ import Modal from "react-bootstrap/Modal";
 // import Button from "react-bootstrap/Button";
 
 function Profile() {
-  const { user } = useStore();
+  const { user, setState } = useStore();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [userId, setUserId] = useState("");
-  const [showWishlists, setShowWishlists] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user && user._id) {
@@ -73,59 +75,56 @@ function Profile() {
     setSelectedCategory(category);
     console.log(category.id);
   };
-  const toggleWishlist = () => {
-    setShowWishlists(!showWishlists);
-  };
+
+  if (!user) {
+    navigate('/login')
+  }
 
   return (
-    <section>
-      <div>
+    <>
+      <section>
         <div>
-          <button className="my-btn my-5" onClick={toggleWishlist}>
-            My Wishlists
-          </button>
-          {showWishlists && (
-            <div>
-              <Wishlist userId={userId} />
-            </div>
-          )}
+          <h1 className="font-weight-bold my-5 text-center">{user.username}'s Wishlists</h1>
         </div>
-      </div>
-      <Dropdown>
-        <Dropdown.Toggle className="my-btn my-3" id="dropdown-basic">
-          Browse Categories
-        </Dropdown.Toggle>
+        <div>
+          <Wishlist userId={userId} />
+        </div>
+        <Dropdown>
+          <Dropdown.Toggle className="my-btn my-3" id="dropdown-basic">
+            Browse Categories
+          </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          {categories.map((category) => (
-            <Dropdown.Item
-              key={category.id}
-              onClick={() => handleCategorySelect(category)}
-            >
-              {category.name}
-            </Dropdown.Item>
+          <Dropdown.Menu>
+            {categories.map((category) => (
+              <Dropdown.Item
+                key={category.id}
+                onClick={() => handleCategorySelect(category)}
+              >
+                {category.name}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <div className="row mt-2">
+          {products.map((product) => (
+            <div className="col-md-4 mb-3" key={product.id}>
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src={product.images[0]}
+                  alt={product.title}
+                />
+                <Card.Body>
+                  <Card.Title>{product.title}</Card.Title>
+                  <Card.Text>Price: {product.price}</Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
           ))}
-        </Dropdown.Menu>
-      </Dropdown>
-
-      <div className="row mt-2">
-        {products.map((product) => (
-          <div className="col-md-4 mb-3" key={product.id}>
-            <Card>
-              <Card.Img
-                variant="top"
-                src={product.images[0]}
-                alt={product.title}
-              />
-              <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>Price: {product.price}</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 

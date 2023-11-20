@@ -31,7 +31,6 @@ function Home() {
             description: 'Product Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti ratione quos facilis! Aliquam tenetur consequuntur odit, architecto tempore fuga aperiam fugiat obcaecati? Impedit nesciunt blanditiis delectus, sint culpa earum!',
             price: '9.99',
         },
-        // Add more products as needed
     ];
 
     return (
