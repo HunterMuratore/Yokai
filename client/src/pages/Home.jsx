@@ -8,14 +8,19 @@ import gaming from '../assets/images/gamingUPD.png'
 import { gql, useQuery } from "@apollo/client"
 
 const GET_ALL_WISHLISTS = gql`
-query getAllWishlists {
+  query getAllWishlists {
     getAllWishlists {
         _id
         name
-        products
+        products {
+            productId
+            name
+            price
+            image
+        }
         user
     }
-}
+  }
 `
 
 function Home() {

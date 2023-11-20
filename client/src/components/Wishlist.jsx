@@ -10,9 +10,16 @@ const GET_WISHLISTS = gql`
     getWishlists {
       _id
       name
+      products {
+        productId
+        name
+        price
+        image
+      }
     }
   }
 `
+
 const CREATE_WISHLIST = gql`
   mutation CreateWishlist($name: String!) {
     createWishlist(name: $name) {
@@ -70,7 +77,6 @@ function Wishlist({ handleClose, userId }) {
 
   const showAlert = (message) => {
     setAlertMessage(message)
-    // Reset alert message after 3 seconds
     setTimeout(() => {
       setAlertMessage("")
     }, 3000)
@@ -223,7 +229,10 @@ function Wishlist({ handleClose, userId }) {
                   <div className="wishlist d-flex flex-column mx-auto mt-3 w-100 rounded">
                     <div className="d-flex">
                       <p className="wishlist-name">{wishlist.name}</p>
-                      <FontAwesomeIcon className="wishlist-dropdown ms-2" icon={faCaretDown} />
+                      <FontAwesomeIcon
+                        className="wishlist-dropdown ms-2"
+                        onClick={() => handleToggleProducts(wishlist._id)}
+                        icon={faCaretDown} />
                       <div className="ms-auto">
                         <button
                           className="my-btn me-2"
@@ -242,7 +251,22 @@ function Wishlist({ handleClose, userId }) {
                       </div>
                     </div>
 
-                    <div className="products justify-content-center gap-4 mb-3">Products List</div>
+                    {visibleProducts[wishlist._id] && (
+                      <div className="products justify-content-around d-flex gap-5">
+                        {wishlist.products && wishlist.products.length > 0 ? (
+                          wishlist.products.map((product) => (
+                            <div key={product.productId} className="product">
+                              <img src={product.image} alt={product.name} />
+                              <p className="font-weight-bold">{product.name}</p>
+                              <p>Price: {product.price}</p>
+                              <button className="my-btn product-btn">Buy Now</button>
+                            </div>
+                          ))
+                        ) : (
+                          <p>No products in this wishlist</p>
+                        )}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

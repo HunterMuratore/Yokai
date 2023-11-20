@@ -16,7 +16,6 @@ const product_resolvers = {
     
     Mutation: {
         async createProduct(_, args) {
-            console.log(args)
             try {
               let product = await Product.findOne({ productId: args.productId });
             

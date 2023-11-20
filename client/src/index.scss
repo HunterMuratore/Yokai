@@ -135,6 +135,10 @@ form {
     padding: 2px 3px;
     color: $theme-accent;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     &:hover,
     &.open {
       background-color: darken($theme-light, 15%);
@@ -145,6 +149,10 @@ form {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
+  }
+
+  .product-btn {
+    font-size: 14px;
   }
 }
 
@@ -162,14 +170,3 @@ footer {
     font-size: 12px;
   }
 }
-
-
-// /* CSS */
-
-// /* Define the hover effect for the card */
-// .card:hover {
-//   /* Add desired styles when hovering over the card */
-//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Example: Add a shadow effect */
-//   transform: scale(1.05); /* Example: Increase size on hover */
-//   transition: all 0.3s ease; /* Smooth transition for the effect */
-// }
