@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
 function Alert({ message, onClose }) {
   useEffect(() => {
     const timer = setTimeout(() => {
-      onClose();
-    }, 3000);
+      onClose()
+    }, 3000)
 
-    return () => clearTimeout(timer);
-  }, [onClose]);
+    return () => clearTimeout(timer)
+  }, [onClose])
 
   return (
     <div className="alert">
