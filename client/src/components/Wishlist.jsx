@@ -75,6 +75,14 @@ function Wishlist({ handleClose, userId }) {
     },
   })
 
+  // TESTING - Log the wishlist data to the console
+  useEffect(() => {
+    if (!loading && data && data.getWishlists) {
+      console.log(data); 
+      setWishlists(data.getWishlists);
+    }
+  }, [loading, data]);
+
   const showAlert = (message) => {
     setAlertMessage(message)
     setTimeout(() => {
