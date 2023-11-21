@@ -6,10 +6,10 @@ const product_resolvers = {
         async getProducts(_, args) {
             try {
                 const products = await Product.find({ wishlist: args.wishlist_id })
+                console.log('getProducts query', products)
                 return products
             } catch (error) {
                 console.log('error fetching products')
-
             }
         }
     },

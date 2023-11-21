@@ -1,8 +1,8 @@
 /* VARIABLES */
 $theme-dark: #FFC7C7;
 $theme-light: #f9d5d5;
-$theme-accent: #F6F6F6;
-$theme-text: #606060;
+$theme-accent: darken(#F6F6F6, 5%);
+$theme-text: #232323;
 
 /* RESETS */
 * {
@@ -64,6 +64,18 @@ a {
 body {
   background-color: $theme-accent;
   color: $theme-text;
+}
+
+.home {
+  .user-card {
+    background-color: $theme-dark;
+    box-shadow: -2px 3px 5px rgb(50, 50, 50);
+  }
+
+  .wishlist-card {
+    background-color: $theme-accent;
+    border: 1px solid black
+  }
 }
 
 header {
@@ -146,9 +158,15 @@ form {
   }
 
   .alert {
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     padding: 10px;
     margin: 10px;
+  }
+
+  .product {
+    .product-image {
+      max-height: 50px;
+    }
   }
 
   .product-btn {

@@ -18,7 +18,6 @@ const GET_USER_BY_ID = gql`
 
 function User() {
   const { userId } = useParams();
-  console.log("userId: ", userId);
   const { loading, error, data } = useQuery(GET_USER_BY_ID, {
     variables: { userId },
   });

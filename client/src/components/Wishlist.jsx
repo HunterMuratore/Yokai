@@ -260,11 +260,11 @@ function Wishlist({ handleClose, userId }) {
                     </div>
 
                     {visibleProducts[wishlist._id] && (
-                      <div className="products justify-content-around d-flex gap-5">
+                      <div className="products justify-content-around d-flex flex-wrap gap-5">
                         {wishlist.products && wishlist.products.length > 0 ? (
                           wishlist.products.map((product) => (
                             <div key={product.productId} className="product">
-                              <img src={product.image} alt={product.name} />
+                              <img className="product-image" src={product.image} alt={product.name} />
                               <p className="font-weight-bold">{product.name}</p>
                               <p>Price: {product.price}</p>
                               <button className="my-btn product-btn">Buy Now</button>

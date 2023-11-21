@@ -9,7 +9,7 @@ const wishlist_resolvers = {
       }
 
       try {
-        const wishlists = await Wishlist.find({ user: context.user._id });
+        const wishlists = await Wishlist.find({ user: context.user._id }).populate('products');
         return wishlists;
       } catch (error) {
         console.error("Error fetching wishlists:", error);
@@ -18,7 +18,7 @@ const wishlist_resolvers = {
 
     async getAllWishlists(_, __, context) {
       try {
-        const wishlists = await Wishlist.find();
+        const wishlists = await Wishlist.find().populate('products');
         return wishlists;
       } catch (error) {
         console.error("Error fetching all wishlists:", error);
