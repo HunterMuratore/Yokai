@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { gql, useQuery } from "@apollo/client"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 import Card from "react-bootstrap/Card"
 
 import Carousel from "react-bootstrap/Carousel"
@@ -36,15 +37,15 @@ function Home() {
 
   const outputWishlist = (user, wishlist) => {
     return (
-      <Card style={{ width: "15rem" }} className="wishlist-card mx-auto p-2">
-        <div className="d-flex align-items-top">
+      <Card className="wishlist-card mx-auto p-2">
+        <div className="d-flex">
           <Card.Title className="fs-5">{wishlist.name}</Card.Title>
-          <NavLink className="ms-auto" to={`/user/${user._id}`}>
-            <Card.Text style={{ fontSize: '12px' }}>View Wishlist</Card.Text>
+          <NavLink className="ms-auto ms-2" to={`/user/${user._id}`}>
+            <Card.Text style={{ fontSize: '12px' }}>View</Card.Text>
           </NavLink>
         </div>
         {wishlist.products && wishlist.products.length > 0 ? (
-          <Card.Img className="mt-1 user-wishlist-image" variant="top" src={wishlist.products[0].image} />
+          <Card.Img className="user-wishlist-image px-4" variant="top" src={wishlist.products[0].image} />
         ) : (
           <p className="my-auto mx-auto mt-2">This wishlist has no items yet</p>
         )}
@@ -69,12 +70,15 @@ function Home() {
           user.wishlists && user.wishlists.length > 0 && (
             <div key={user._id}>
               <Card style={{ width: "18rem" }} className="user-card mb-1">
-                <Card.Body>
+                <div className="d-flex align-items-center justify-content-between">
+                  <Card.Title className="font-weight-bold p-2">{user.username}'s Wishlists</Card.Title>
                   <NavLink to={`/user/${user._id}`}>
-                    <Card.Title className="font-weight-bold">{user.username}'s Wishlists</Card.Title>
+                    <FontAwesomeIcon
+                      className="user-link me-3"
+                      icon={faArrowUpRightFromSquare} />
                   </NavLink>
-                </Card.Body>
-                <div className="h-100">
+                </div>
+                <div className="mb-auto px-4">
                   {outputWishlist(user, user.wishlists[0])}
                 </div>
               </Card>

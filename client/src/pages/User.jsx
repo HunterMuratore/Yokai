@@ -62,25 +62,25 @@ function User() {
             <Card key={wishlist._id} userid={userId} className="d-flex flex-col mb-3 mx-auto user-card">
               <Card.Body className="user-body">
                 <div className="d-flex align-items-center">
-                  <Card.Title className="product-name mt-2">{wishlist.name}</Card.Title>
+                  <Card.Title className="mt-2">{wishlist.name}</Card.Title>
                   <FontAwesomeIcon
                     className="wishlist-dropdown ms-2"
                     onClick={() => handleToggleProducts(wishlist._id)}
                     icon={faCaretDown} />
                 </div>
                 {isProductsVisible && wishlist.products && wishlist.products.length > 0 ? (
-                  <>
+                  <div className="product-container d-flex flex-wrap gap-2">
                     {wishlist.products.map((product, i) => (
                       <Card key={i} style={{ width: "15rem" }} className="wishlist-card d-flex justify-content-around mb-3 mx-auto p-2">
                         <div key={product.productId} className="product flex-wrap">
                           <img className="product-image" src={product.image} alt={product.name} />
                           <Card.Title className="product-name mt-2">{product.name}</Card.Title>
-                          <Card.Text>Price: ${product.price}</Card.Text>
+                          <Card.Text className="price">Price: ${product.price}</Card.Text>
                           <button className="my-btn product-btn">Buy Now</button>
                         </div>
                       </Card>
                     ))}
-                  </>
+                  </div>
                 ) : null
                 }
               </Card.Body>
@@ -93,43 +93,3 @@ function User() {
 }
 
 export default User;
-
-// <div>
-// <Wishlist userId={user._id} />
-// </div>
-
-{/* <div>
-{user.wishlists.map((wishlist) => {
-  const isProductsVisible = visibleProducts[wishlist._id];
-  return (
-    <Card key={wishlist._id} userid={userId} className="d-flex flex-col mb-3 mx-auto user-card">
-      <Card.Body className="user-body">
-        <div className="d-flex align-items-center">
-          <Card.Title className="product-name mt-2">{wishlist.name}</Card.Title>
-          <FontAwesomeIcon
-            className="wishlist-dropdown ms-2"
-            onClick={() => handleToggleProducts(wishlist._id)}
-            icon={faCaretDown}
-          />
-        </div>
-        {isProductsVisible && wishlist.products && wishlist.products.length > 0 ? (
-          <div className="row row-cols-1 row-cols-md-2 g-4">
-            {wishlist.products.map((product, i) => (
-              <div key={i} className="col">
-                <Card style={{ width: "15rem" }} className="wishlist-card d-flex justify-content-around mb-3 mx-auto p-2">
-                  <div key={product.productId} className="product flex-wrap">
-                    <img className="product-image" src={product.image} alt={product.name} />
-                    <Card.Title className="product-name mt-2">{product.name}</Card.Title>
-                    <Card.Text>Price: ${product.price}</Card.Text>
-                    <button className="my-btn product-btn">Buy Now</button>
-                  </div>
-                </Card>
-              </div>
-            ))}
-          </div>
-        ) : null}
-      </Card.Body>
-    </Card>
-  );
-})}
-</div> */}

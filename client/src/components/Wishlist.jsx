@@ -269,7 +269,7 @@ function Wishlist({ handleClose, userId }) {
                                 <div key={product.productId} className="product flex-wrap">
                                   <img className="product-image" src={product.image} alt={product.name} />
                                   <Card.Title className="product-name mt-2">{product.name}</Card.Title>
-                                  <Card.Text>Price: ${product.price}</Card.Text>
+                                  <Card.Text className="price">Price: ${product.price}</Card.Text>
                                   <button className="my-btn product-btn">Buy Now</button>
                                 </div>
                               </Card>

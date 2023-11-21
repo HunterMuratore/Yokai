@@ -48,15 +48,18 @@ a {
   border: none;
   border-radius: 6px;
   padding: 5px;
-  color: lighten($theme-accent, 10%);
+  color: $theme-text;
+  // lighten($theme-accent, 10%);
 
   &:hover,
   &.open {
-    background-color: darken($theme-light, 15%);
+    background-color: darken($theme-light, 15%) !important;
+    color: $theme-text;
   }
 
   +.dropdown-menu a:hover {
-    background-color: darken($theme-light, 10%);
+    background-color: darken($theme-light, 10%) !important;
+    color: $theme-text;
   }
 }
 
@@ -70,12 +73,17 @@ body {
   .user-card {
     background-color: $theme-dark;
     box-shadow: -2px 3px 5px rgb(50, 50, 50);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     height: 220px;
-  }
+    &:hover {
+      transform: translate(5px, -5px);
+      box-shadow: -4px 0 8px lighten($theme-text, 10%), 0 4px 8px lighten($theme-text, 10%); 
+    }
+  } 
 
   .wishlist-card {
     background-color: $theme-accent;
-    border: 1px solid black
+    border: 1px solid black;
   }
 
   .user-wishlist-image {
@@ -128,6 +136,7 @@ header {
   .profile-picture img {
     height: 75px;
     border-radius: 30%;
+
     &:hover {
       cursor: pointer;
     }
@@ -145,14 +154,17 @@ form {
   }
 }
 
-.wishlists, .user-page { 
+.wishlists,
+.user-page {
   .wishlist {
     background-color: $theme-dark;
     border: $theme-text 1px solid;
     padding: 10px;
     max-width: 650px;
+
     .wishlist-icon {
       background-color: $theme-text !important;
+      color: white !important;
     }
   }
 
@@ -178,15 +190,21 @@ form {
     overflow-y: auto;
     max-height: 450px;
 
-  
-  
-    .product-btn {
+    .product-name {
+      font-size: 16px;
+      font-weight: 520;
+    }
+
+    .price {
       font-size: 14px;
     }
+
+    .product-btn {
+      font-size: 12px;
+    }
   }
-    
-  
 }
+
 .product-image {
   max-width: 80px;
 }
@@ -206,15 +224,36 @@ form {
   .user-card {
     background-color: $theme-accent;
     max-width: 650px;
+
     .user-body {
       background-color: $theme-dark;
+
       .user-products {
         background-color: $theme-accent;
       }
     }
+
     .product {
-      img {
-        max-width: 80px;
+      .product-container {
+        overflow-y: auto;
+        max-height: 450px;
+    
+        .product-name {
+          font-size: 16px;
+          font-weight: 520;
+        }
+    
+        .price {
+          font-size: 14px;
+        }
+    
+        .product-btn {
+          font-size: 12px;
+        }
+
+        img {
+          max-width: 80px;
+        }
       }
     }
   }

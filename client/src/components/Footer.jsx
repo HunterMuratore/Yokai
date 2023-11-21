@@ -18,13 +18,13 @@ function Footer() {
                     <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-primary me-3">
                         <i className="fab fa-github"></i>
                     </a>
-                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-success me-3">
+                    <a href="https://github.com/andrew-opitz" target="_blank" rel="noopener noreferrer" className="text-success me-3">
                         <i className="fab fa-github"></i>
                     </a>
-                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-danger me-3">
+                    <a href="https://github.com/Kev-Castro" target="_blank" rel="noopener noreferrer" className="text-danger me-3">
                         <i className="fab fa-github"></i>
                     </a>
-                    <a href="https://github.com/HunterMuratore/project-3" target="_blank" rel="noopener noreferrer" className="text-warning">
+                    <a href="https://github.com/GendySparrowhawk" target="_blank" rel="noopener noreferrer" className="text-warning">
                         <i className="fab fa-github"></i>
                     </a>
                 </div>

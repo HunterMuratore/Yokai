@@ -195,7 +195,7 @@ function Profile() {
                   />
                   <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
-                    <Card.Text>Price: {product.price}</Card.Text>
+                    <Card.Text>Price: ${product.price}</Card.Text>
                     <Dropdown>
                       <Dropdown.Toggle
                         className="my-btn"
