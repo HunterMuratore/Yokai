@@ -145,7 +145,7 @@ function Auth({ isLogin }) {
                                 <span className='me-1'>Already have an Account?</span><NavLink to="/login">Log In</NavLink>
                             </>)}
                     </div>
-                    
+
                     <Button className="my-btn" type="submit">
                         Submit
                     </Button>

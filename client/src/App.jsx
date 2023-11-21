@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useStore } from './store'
 
 import Container from 'react-bootstrap/Container'
@@ -45,7 +45,7 @@ function App() {
   return (
     <>
       {loading ? (
-        <h3 className='d=flex justify-content-center align-items-center vh-100'>Loading...</h3> // Can use font awesome here to make a loading icon
+        <h3 className='d=flex justify-content-center align-items-center vh-100'>Loading...</h3>
       ) : (
         <>
           <Header />

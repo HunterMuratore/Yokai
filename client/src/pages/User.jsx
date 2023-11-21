@@ -1,10 +1,9 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react"
-import { useQuery, gql } from "@apollo/client";
+import { useParams } from "react-router-dom"
+import { useState } from "react"
+import { useQuery, gql } from "@apollo/client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
-import Card from "react-bootstrap/Card";
-import Wishlist from "../components/Wishlist";
+import Card from "react-bootstrap/Card"
 
 const GET_USER_BY_ID = gql`
   query GetUser($userId: ID!) {
@@ -23,19 +22,19 @@ const GET_USER_BY_ID = gql`
       }
     }
   }
-`;
+`
 
 function User() {
-  const { userId } = useParams();
+  const { userId } = useParams()
   const { loading, error, data } = useQuery(GET_USER_BY_ID, {
     variables: { userId },
-  });
+  })
   const [visibleProducts, setVisibleProducts] = useState({})
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
 
-  const user = data.getUserById;
+  const user = data.getUserById
 
   const handleToggleProducts = (wishlistId) => {
     setVisibleProducts((prevVisibleProducts) => ({
@@ -85,11 +84,11 @@ function User() {
                 }
               </Card.Body>
             </Card>
-          );
+          )
         })}
       </div>
     </section>
-  );
+  )
 }
 
-export default User;
+export default User

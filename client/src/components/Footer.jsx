@@ -5,10 +5,8 @@ function Footer() {
 
     return (
         <>
-
-
             <footer className="footer mt-auto m-2 text-center">
-            <hr className="mx-auto divider"></hr>
+                <hr className="mx-auto divider"></hr>
                 <p className="copyright mb-1">&copy; {date.getFullYear()}</p>
                 <p className="mb-1">
                     <span className="d-none d-sm-inline">Developed by Group 2</span>

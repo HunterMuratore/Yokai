@@ -18,8 +18,8 @@ const LOGOUT_USER = gql`
 `
 
 function Header() {
-    const [ logoutUser ] = useMutation(LOGOUT_USER)
-    const { user, setState } = useStore() 
+    const [logoutUser] = useMutation(LOGOUT_USER)
+    const { user, setState } = useStore()
     const navigate = useNavigate()
     const isMobile = useMediaQuery({ query: '(max-width: 990px)' })
 

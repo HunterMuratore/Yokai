@@ -40,14 +40,14 @@ function ProfileImageUpload({ onUpload }) {
 
     const handleUpload = async () => {
         fetch('/test').then(res => res.text())
-        .then(data => console.log(data))
-            
+            .then(data => console.log(data))
+
         // try {
         //     if (!selectedImage) {
         //         showAlert('No Image Selected!')
         //         return;
         //     }
-            
+
         //     console.log(selectedImage)
         //     const { data } = await uploadProfilePicture({
         //         variables: {
