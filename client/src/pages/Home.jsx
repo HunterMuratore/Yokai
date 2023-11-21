@@ -22,6 +22,22 @@ const GET_ALL_USERS_WISHLISTS = gql`
   }
 `;
 
+const GET_ALL_WISHLISTS = gql`
+  query getAllWishlists {
+    getAllWishlists {
+        _id
+        name
+        products {
+            productId
+            name
+            price
+            image
+        }
+        user
+    }
+  }
+`
+
 function Home() {
   const images = [clothes, furinture, gaming];
   const products = [
