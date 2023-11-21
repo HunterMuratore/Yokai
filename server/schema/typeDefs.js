@@ -12,6 +12,7 @@ const typeDefs = gql`
         _id: ID
         email: String
         username: String
+        profilePicture: String
         createdAt: String
         updatedAt: String
         wishlists: [Wishlist]
@@ -22,6 +23,12 @@ const typeDefs = gql`
         name: String
         image: String
         price: Int
+    }
+
+    input Picture {
+        filename: String
+        mimetype: String
+        encoding: String 
     }
 
     type Query {
@@ -37,6 +44,7 @@ const typeDefs = gql`
         register(email: String!, username: String!, password: String!): User
         login(identifier: String!, password: String!): User
         logout: String
+        uploadProfilePicture(id: ID!, profilePicture: Picture!): User
         createWishlist(name: String!): Wishlist
         updateWishlist(id: ID!, name: String!): Wishlist
         deleteWishlist(id: ID!): Wishlist

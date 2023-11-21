@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faTrash, faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import Card from "react-bootstrap/Card"
 
-
 import Alert from "./Alert"
 
-const GET_WISHLISTS = gql`
+import { GET_ALL_USERS_WISHLISTS } from '../pages/Home'
+
+
+export const GET_WISHLISTS = gql`
   query GetWishlists {
     getWishlists {
       _id
@@ -56,7 +58,11 @@ function Wishlist({ handleClose, userId }) {
   const [alertMessage, setAlertMessage] = useState("")
   const [visibleProducts, setVisibleProducts] = useState({})
   const { loading, error, data, refetch } = useQuery(GET_WISHLISTS)
-  const [CreateWishlistMutation] = useMutation(CREATE_WISHLIST)
+  const [CreateWishlistMutation] = useMutation(CREATE_WISHLIST, {
+    refetchQueries: [
+      GET_ALL_USERS_WISHLISTS
+    ]
+  })
   const [UpdateWishlistMutation] = useMutation(UPDATE_WISHLIST)
   const [DeleteWishlistMutation] = useMutation(DELETE_WISHLIST, {
     update(cache, { data: { deleteWishlist } }) {
@@ -156,6 +162,7 @@ function Wishlist({ handleClose, userId }) {
       ...prevVisibleProducts,
       [wishlistId]: !prevVisibleProducts[wishlistId],
     }))
+    refetch()
   }
 
   const handleCreateToggle = () => {
@@ -254,21 +261,23 @@ function Wishlist({ handleClose, userId }) {
                     </div>
 
                     {visibleProducts[wishlist._id] && (
-                      <div className="products justify-content-around d-flex flex-wrap gap-5 h-100">
-                        {wishlist.products && wishlist.products.length > 0 ? (
-                          wishlist.products.map((product) => (
-                            <Card key={product.id} style={{ width: "15rem" }} className="wishlist-card d-flex flex-col mb-3 mx-auto p-2">
-                              <div key={product.productId} className="product flex-wrap">
-                                <img className="product-image" src={product.image} alt={product.name} />
-                                <Card.Title className="product-name mt-2">{product.name}</Card.Title>
-                                <Card.Text>Price: {product.price}</Card.Text>
-                                <button className="my-btn product-btn">Buy Now</button>
-                              </div>
-                            </Card>
-                          ))
-                        ) : (
-                          <p>No products in this wishlist</p>
-                        )}
+                      <div className="product-container">
+                        <div className="products justify-content-around d-flex flex-wrap gap-2 mt-2 h-100">
+                          {wishlist.products && wishlist.products.length > 0 ? (
+                            wishlist.products.map((product, i) => (
+                              <Card key={i} style={{ width: "15rem" }} className="wishlist-card d-flex flex-column mb-3 mx-auto p-2">
+                                <div key={product.productId} className="product flex-wrap">
+                                  <img className="product-image" src={product.image} alt={product.name} />
+                                  <Card.Title className="product-name mt-2">{product.name}</Card.Title>
+                                  <Card.Text>Price: ${product.price}</Card.Text>
+                                  <button className="my-btn product-btn">Buy Now</button>
+                                </div>
+                              </Card>
+                            ))
+                          ) : (
+                            <p>No products in this wishlist</p>
+                          )}
+                        </div>
                       </div>
                     )}
                   </div>

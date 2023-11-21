@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 
 const { ApolloServer } = require('@apollo/server');
-const { expressMiddleware } = require('@apollo/server/express4');
+const { expressMiddleware, up } = require('@apollo/server/express4');
 
 const app = express();
 
@@ -36,6 +36,11 @@ async function startServer() {
     app.use('/graphql', expressMiddleware(server, {
         context: authenticate
     }));
+
+    app.get('/test', (req, res) => {
+        res.send('something')
+    })
+
 
     if (is_prod) {
         app.get('*', (req, res) => {

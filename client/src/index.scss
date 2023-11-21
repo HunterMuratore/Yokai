@@ -70,11 +70,16 @@ body {
   .user-card {
     background-color: $theme-dark;
     box-shadow: -2px 3px 5px rgb(50, 50, 50);
+    height: 220px;
   }
 
   .wishlist-card {
     background-color: $theme-accent;
     border: 1px solid black
+  }
+
+  .user-wishlist-image {
+    max-height: 100px
   }
 }
 
@@ -119,6 +124,16 @@ header {
   }
 }
 
+.profile {
+  .profile-picture img {
+    height: 75px;
+    border-radius: 30%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 form {
   max-width: 450px;
   margin: 0 auto;
@@ -130,7 +145,7 @@ form {
   }
 }
 
-.wishlists { 
+.wishlists, .user-page { 
   .wishlist {
     background-color: $theme-dark;
     border: $theme-text 1px solid;
@@ -153,31 +168,55 @@ form {
     font-size: 14px;
   }
 
-  .wishlist-dropdown {
-    background-color: darken($theme-text, 10%) !important;
-    border-radius: 3px;
-    padding: 2px 3px;
-    color: $theme-accent;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
   .alert {
     border: 1px solid #000000;
     padding: 10px;
     margin: 10px;
   }
 
-  .product {
-    .product-image {
-      max-height: 60px;
+  .product-container {
+    overflow-y: auto;
+    max-height: 450px;
+
+  
+  
+    .product-btn {
+      font-size: 14px;
     }
   }
+    
+  
+}
+.product-image {
+  max-width: 80px;
+}
 
-  .product-btn {
-    font-size: 14px;
+.wishlist-dropdown {
+  background-color: darken($theme-text, 10%) !important;
+  border-radius: 3px;
+  padding: 2px 3px;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.user-page {
+  .user-card {
+    background-color: $theme-accent;
+    max-width: 650px;
+    .user-body {
+      background-color: $theme-dark;
+      .user-products {
+        background-color: $theme-accent;
+      }
+    }
+    .product {
+      img {
+        max-width: 80px;
+      }
+    }
   }
 }
 

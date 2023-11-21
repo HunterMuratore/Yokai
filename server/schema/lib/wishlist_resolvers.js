@@ -27,9 +27,13 @@ const wishlist_resolvers = {
 
     async getAllUsersWishlists(_, __, context) {
       try {
-        const userWishlists  = await User.find({}).populate('wishlists')
+        const userWishlists  = await User.find({}).populate({
+          path: 'wishlists',
+          populate: 'products'
+        })
         return userWishlists
       } catch (err) {
+        console.log(err)
         console.error('Could not fetch wishlists')
         throw new Error('oops, no wishlists')
       }
