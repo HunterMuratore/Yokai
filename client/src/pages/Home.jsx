@@ -1,13 +1,12 @@
-import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import clothes from "../assets/images/clothesUPD.png";
-import furinture from "../assets/images/furnitureUPD.png";
-import gaming from "../assets/images/gamingUPD.png";
-import { NavLink, useNavigate } from 'react-router-dom'
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Carousel from "react-bootstrap/Carousel"
+import Card from "react-bootstrap/Card"
+import ListGroup from "react-bootstrap/ListGroup"
+import clothes from "../assets/images/clothesUPD.png"
+import furinture from "../assets/images/furnitureUPD.png"
+import gaming from "../assets/images/gamingUPD.png"
+import { NavLink } from 'react-router-dom'
 
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client"
 
 const GET_ALL_USERS_WISHLISTS = gql`
   query getAllUsersWishlists {
@@ -20,7 +19,7 @@ const GET_ALL_USERS_WISHLISTS = gql`
       }
     }
   }
-`;
+`
 
 const GET_ALL_WISHLISTS = gql`
   query getAllWishlists {
@@ -39,7 +38,7 @@ const GET_ALL_WISHLISTS = gql`
 `
 
 function Home() {
-  const images = [clothes, furinture, gaming];
+  const images = [clothes, furinture, gaming]
   const products = [
     {
       name: "Product Name 1",
@@ -71,12 +70,12 @@ function Home() {
         "Product Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti ratione quos facilis! Aliquam tenetur consequuntur odit, architecto tempore fuga aperiam fugiat obcaecati? Impedit nesciunt blanditiis delectus, sint culpa earum!",
       price: "9.99",
     },
-  ];
+  ]
 
-  const { loading, error, data } = useQuery(GET_ALL_USERS_WISHLISTS);
+  const { loading, error, data } = useQuery(GET_ALL_USERS_WISHLISTS)
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
 
   return (
     <>
@@ -126,7 +125,7 @@ function Home() {
         ))}
 </div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

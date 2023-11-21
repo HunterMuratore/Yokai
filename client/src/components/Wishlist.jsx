@@ -38,12 +38,12 @@ const DELETE_WISHLIST = gql`
 `
 
 const UPDATE_WISHLIST = gql`
-mutation UpdateWishlist($id: ID!, $name: String!) {
-   updateWishlist(id: $id, name: $name) {
-    _id
-    name
-   }
-}
+  mutation UpdateWishlist($id: ID!, $name: String!) {
+    updateWishlist(id: $id, name: $name) {
+     _id
+     name
+    }
+  }
 `
 
 function Wishlist({ handleClose, userId }) {
