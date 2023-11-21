@@ -29,6 +29,8 @@ const typeDefs = gql`
         getWishlists: [Wishlist]
         getAllWishlists: [Wishlist]
         getProducts: [Product]
+        getAllUsersWishlists: [User]
+        getUserById(userId: ID!): User
     }
 
     type Mutation {

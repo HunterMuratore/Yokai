@@ -24,6 +24,16 @@ const wishlist_resolvers = {
         console.error("Error fetching all wishlists:", error);
       }
     },
+
+    async getAllUsersWishlists(_, __, context) {
+      try {
+        const userWishlists  = await User.find({}).populate('wishlists')
+        return userWishlists
+      } catch (err) {
+        console.error('Could not fetch wishlists')
+        throw new Error('oops, no wishlists')
+      }
+    }
   },
 
 
