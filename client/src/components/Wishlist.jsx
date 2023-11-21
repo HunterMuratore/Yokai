@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { gql, useMutation, useQuery } from "@apollo/client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faTrash, faCaretDown } from "@fortawesome/free-solid-svg-icons"
+import Card from "react-bootstrap/Card"
+
 
 import Alert from "./Alert"
 
@@ -74,14 +76,6 @@ function Wishlist({ handleClose, userId }) {
       })
     },
   })
-
-  // TESTING - Log the wishlist data to the console
-  useEffect(() => {
-    if (!loading && data && data.getWishlists) {
-      console.log(data); 
-      setWishlists(data.getWishlists);
-    }
-  }, [loading, data]);
 
   const showAlert = (message) => {
     setAlertMessage(message)
@@ -243,7 +237,7 @@ function Wishlist({ handleClose, userId }) {
                         icon={faCaretDown} />
                       <div className="ms-auto">
                         <button
-                          className="my-btn me-2"
+                          className="my-btn wishlist-icon me-2"
                           onClick={() =>
                             handleUpdateWishlist(wishlist._id, wishlist.name)
                           }
@@ -251,7 +245,7 @@ function Wishlist({ handleClose, userId }) {
                           <FontAwesomeIcon icon={faEdit} />
                         </button>
                         <button
-                          className="my-btn"
+                          className="my-btn wishlist-icon"
                           onClick={() => handleDeleteWhishlist(wishlist._id)}
                         >
                           <FontAwesomeIcon icon={faTrash} />
@@ -260,15 +254,17 @@ function Wishlist({ handleClose, userId }) {
                     </div>
 
                     {visibleProducts[wishlist._id] && (
-                      <div className="products justify-content-around d-flex flex-wrap gap-5">
+                      <div className="products justify-content-around d-flex flex-wrap gap-5 h-100">
                         {wishlist.products && wishlist.products.length > 0 ? (
                           wishlist.products.map((product) => (
-                            <div key={product.productId} className="product">
-                              <img className="product-image" src={product.image} alt={product.name} />
-                              <p className="font-weight-bold">{product.name}</p>
-                              <p>Price: {product.price}</p>
-                              <button className="my-btn product-btn">Buy Now</button>
-                            </div>
+                            <Card key={product.id} style={{ width: "15rem" }} className="wishlist-card d-flex flex-col mb-3 mx-auto p-2">
+                              <div key={product.productId} className="product flex-wrap">
+                                <img className="product-image" src={product.image} alt={product.name} />
+                                <Card.Title className="product-name mt-2">{product.name}</Card.Title>
+                                <Card.Text>Price: {product.price}</Card.Text>
+                                <button className="my-btn product-btn">Buy Now</button>
+                              </div>
+                            </Card>
                           ))
                         ) : (
                           <p>No products in this wishlist</p>

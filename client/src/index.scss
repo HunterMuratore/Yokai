@@ -48,7 +48,7 @@ a {
   border: none;
   border-radius: 6px;
   padding: 5px;
-  color: $theme-accent;
+  color: lighten($theme-accent, 10%);
 
   &:hover,
   &.open {
@@ -130,30 +130,37 @@ form {
   }
 }
 
-.wishlists {
+.wishlists { 
   .wishlist {
+    background-color: $theme-dark;
     border: $theme-text 1px solid;
     padding: 10px;
     max-width: 650px;
+    .wishlist-icon {
+      background-color: $theme-text !important;
+    }
+  }
+
+  .wishlist-card {
+    border: 1px solid black;
   }
 
   .wishlist-name {
     font-weight: 700;
   }
 
+  .product-name {
+    font-size: 14px;
+  }
+
   .wishlist-dropdown {
-    background-color: darken($theme-light, 10%) !important;
+    background-color: darken($theme-text, 10%) !important;
     border-radius: 3px;
     padding: 2px 3px;
     color: $theme-accent;
 
     &:hover {
       cursor: pointer;
-    }
-
-    &:hover,
-    &.open {
-      background-color: darken($theme-light, 15%);
     }
   }
 
@@ -165,7 +172,7 @@ form {
 
   .product {
     .product-image {
-      max-height: 50px;
+      max-height: 60px;
     }
   }
 

@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom'
 import { gql, useQuery } from "@apollo/client"
 
 import Card from "react-bootstrap/Card"
-import ListGroup from "react-bootstrap/ListGroup"
 
 import Carousel from "react-bootstrap/Carousel"
 import clothes from "../assets/images/clothesUPD.png"
