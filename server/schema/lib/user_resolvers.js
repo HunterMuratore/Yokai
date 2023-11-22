@@ -6,7 +6,18 @@ const user_resolvers = {
     Query: {
         authenticate(_, __, context) {
             return context.user;
-        }
+        },
+        async getUserById(_, { userId }) {
+            try {
+                const user = User.findById(userId).populate({
+                    path: 'wishlists',
+                    populate: 'products'
+                })
+                return user
+            } catch (err) {
+                throw new Error('could not get user')
+            }
+        } 
     },
 
     Mutation: {
@@ -71,9 +82,27 @@ const user_resolvers = {
         },     
         
         logout(_, __, context) {
-            context.res.clearCookie('token')
+            context.res.clearCookie('token');
 
             return 'User logged out successfully'
+        },
+
+        async uploadProfilePicture(_, args) {
+            const { id, profilePicture } = args;
+
+            console.log('Profile Pic String:', profilePicture);
+            
+            try {
+                const { createReadString, name } = await profilePicture;
+
+                console.log(name)
+                // const user = await User.findByIdAndUpdate(id, { profilePicture }, { new: true });
+
+                // return user;
+                
+            } catch (err) {
+                console.log(err);
+            }
         }
     }
 }

@@ -4,11 +4,13 @@ import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.scss'
 
+
 import { StoreProvider } from './store.jsx'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client'
+import { ApolloClient, ApolloLink, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client'
+// import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
 import { onError } from '@apollo/client/link/error'
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

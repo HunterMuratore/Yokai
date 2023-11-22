@@ -1,13 +1,15 @@
-import { useMutation, gql } from '@apollo/client';
+import { useMutation, gql } from '@apollo/client'
 
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 
 import { NavLink, useNavigate } from 'react-router-dom'
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive'
 
 import { useStore } from '../store'
+
+import logo from '../assets/images/wishlist_logo.gif'
 
 const LOGOUT_USER = gql`
     mutation {
@@ -16,8 +18,8 @@ const LOGOUT_USER = gql`
 `
 
 function Header() {
-    const [ logoutUser ] = useMutation(LOGOUT_USER)
-    const { user, setState } = useStore() 
+    const [logoutUser] = useMutation(LOGOUT_USER)
+    const { user, setState } = useStore()
     const navigate = useNavigate()
     const isMobile = useMediaQuery({ query: '(max-width: 990px)' })
 
@@ -38,7 +40,7 @@ function Header() {
         <header>
             <Navbar expand="lg">
                 <Container>
-                    <Navbar.Brand href="/">Wish List</Navbar.Brand>
+                    <Navbar.Brand href="/"><img className="logo" src={logo} alt="WishList Logo" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
@@ -48,13 +50,12 @@ function Header() {
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/profile">Profile</NavLink>
                                     <a href="/" onClick={logout}>Log Out</a>
-                                    <a href="/Profile">Profile</a>
                                 </>
                             ) : (
                                 <>
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/register">Register</NavLink>
-                                    {isMobile ? '' : <span>or</span>}
+                                    {isMobile ? '' : <span className="slash">/</span>}
                                     <NavLink to="/login">Log In</NavLink>
                                 </>
                             )}
