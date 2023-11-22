@@ -75,9 +75,13 @@ Email:
 
 GitHub account:
 >[huntermuratore.com](https://huntermuratore.com)
+
 >[jacobhoefer.com](https://huntermuratore.com)
+
 >[andrewopitz.com](https://huntermuratore.com)
+
 >[kevincastro.com](https://huntermuratore.com)
+
 ---
 DON'T FORGET YOUR CHARGERS! :sweat_smile:
 ---
