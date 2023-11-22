@@ -70,11 +70,17 @@
 
 If you have an questions about the app or would like to contribute in any way please feel free to reach out to us!
 
-Email:
+Developer's Email:
 >[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
 
-GitHub account:
->[https://github.com/HunterMuratore](https://github.com/HunterMuratore)
+Developer's Portfolios:
+>[huntermuratore.com](https://huntermuratore.com)
+
+>[jacobhoefer.com](https://huntermuratore.com)
+
+>[andrewopitz.com](https://huntermuratore.com)
+
+>[kevincastro.com](https://huntermuratore.com)
 
 ---
 DON'T FORGET YOUR CHARGERS! :sweat_smile:
