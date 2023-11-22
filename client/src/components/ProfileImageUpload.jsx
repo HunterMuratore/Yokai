@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { useStore } from '../store'
 
+import { AUTHENTICATE } from '../App';
+
 import Alert from './Alert'
 
 const UPLOAD_PROFILE_PICTURE = gql`
@@ -22,7 +24,9 @@ function ProfileImageUpload({ onUpload, toggle }) {
     const { user } = useStore()
     const [selectedImage, setSelectedImage] = useState(null);
     const [alertMessage, setAlertMessage] = useState("")
-    const [uploadProfilePicture] = useMutation(UPLOAD_PROFILE_PICTURE);
+    const [uploadProfilePicture] = useMutation(UPLOAD_PROFILE_PICTURE, {
+        refetchQueries: [ AUTHENTICATE ]
+    });
 
     const showAlert = (message) => {
         setAlertMessage(message)
@@ -53,6 +57,7 @@ function ProfileImageUpload({ onUpload, toggle }) {
             });
 
             toggle(false)
+            
         } catch (error) {
             console.error('Error uploading profile picture:', error);
         }

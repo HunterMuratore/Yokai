@@ -15,7 +15,7 @@ import Profile from './pages/Profile'
 import User from './pages/User'
 import NotFound from './pages/NotFound'
 
-const AUTHENTICATE = gql`
+export const AUTHENTICATE = gql`
   query {
     authenticate {
       _id
