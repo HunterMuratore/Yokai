@@ -10,7 +10,7 @@
 
 ### How can we help?
 
-- Yokai arms consumers with easy to access wishlists of other uses and also products to add to their very own! You'll easily navigate throught Yokai to make an account for yourself begin making those easy to access lists you can always come back to.
+- Yokai arms consumers with easy to access wishlists of other uses and also products to add to their very own! You'll easily navigate throught Yokai to make an account for yourself and begin making those easy to access lists you can always come back to.
 
 - Not ready to pull the trigger on a product just yet? Don't worry, you can save them on your Wishlist and come back later to get what you need.
 
@@ -18,7 +18,7 @@
 
 - With Yokai, simply Register or Login, vist your profile, Create a new Wishlist and start adding the products you love!
 
-- Not sure what to buy someone? No worries! Ask them to join Yokai, create an account , and make a Wishlist!
+- Not sure what to buy someone? No worries! Ask them to join Yokai, create an account, and make a Wishlist!
 - After they have saved a couple of products, you can navigate to the home page and you will see their Wishlist below the coursel.
 
 ## Table of Contents
@@ -69,7 +69,7 @@
 
 ## Questions
 
-If you have an questions about the app or would like to contribute in any way please feel free to reach out to me!
+If you have an questions about the app or would like to contribute in any way please feel free to reach out to us!
 
 Email:
 >[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
