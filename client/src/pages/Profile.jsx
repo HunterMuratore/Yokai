@@ -149,15 +149,16 @@ function Profile() {
       {!user ? toLogin() : (
         <section className="profile">
 
-          <div className="d-flex mx-auto">
+          {/* <div className="d-flex mx-auto">
             {showProfileImageUpload && (
               <ProfileImageUpload onUpload={handleProfileImageUpload} />
             )}
-          </div>
+          </div> */}
 
           <div className="profile-picture d-flex justify-content-center my-5">
             {/* If user has no profile pic in db then set this */}
-            <img onClick={toggleProfileImageUpload} src={profilePic} alt="Profile Picture" />
+            {/* <img onClick={toggleProfileImageUpload} src={profilePic} alt="Profile Picture" /> */}
+            <img src={profilePic} alt="Profile Picture" />
           </div>
 
           <h1 className="font-weight-bold mt-4 mb-4 text-center">{user.username}'s Wishlists</h1>
