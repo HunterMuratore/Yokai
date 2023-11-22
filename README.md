@@ -29,7 +29,7 @@
 
 ## Creation
 
-- The team dedicated days to designing and developing our webpage, from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi! 
+- The team dedicated days to designing and developing our webpage, from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi!
 
 - This development ranged from styling the website utilizing React, Vite, Bootstrap and Javascript.
 - The backend is structured using an express server, GraphQL and Mongodb.
@@ -74,7 +74,7 @@
 
 If you have an questions about the app or would like to contribute in any way please feel free to reach out to us!
 
-Email:
+Developer's Email:
 >[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
 >
 >[kevcastro325@gmail.com](mailto:kevcastro325@gmail.com?subject=[GitHub]%20Yokai)

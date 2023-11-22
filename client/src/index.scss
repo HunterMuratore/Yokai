@@ -133,13 +133,16 @@ header {
 }
 
 .profile {
-  .profile-picture img {
-    height: 75px;
-    border-radius: 30%;
+  .profile-picture {
+    margin: 0 auto;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    overflow: hidden;
 
-    // &:hover {
-    //   cursor: pointer;
-    // }
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

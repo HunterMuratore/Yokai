@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/graphql': {
+      '^/graphql|^/profile_images': {
         target: 'http://localhost:3333',
         changeOrigin: true,
         secure: false,
-        ws: true 
+        ws: true
       }
     }
   }

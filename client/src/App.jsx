@@ -15,12 +15,13 @@ import Profile from './pages/Profile'
 import User from './pages/User'
 import NotFound from './pages/NotFound'
 
-const AUTHENTICATE = gql`
+export const AUTHENTICATE = gql`
   query {
     authenticate {
       _id
       email
       username
+      profilePicture
       wishlists {
         _id
         name
@@ -49,7 +50,7 @@ function App() {
       ) : (
         <>
           <Header />
-          
+
           <Container>
             <Routes>
               <Route path='/' element={<Home />}></Route>
