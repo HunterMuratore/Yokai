@@ -74,8 +74,7 @@ Email:
 >[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
 
 GitHub account:
->[https://github.com/HunterMuratore](https://github.com/HunterMuratore)
-
+>[huntermuratore.com](https://huntermuratore.com)
 ---
 DON'T FORGET YOUR CHARGERS! :sweat_smile:
 ---
