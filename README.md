@@ -14,7 +14,7 @@
 
 - Not ready to pull the trigger on a product just yet? Don't worry, you can save them on your Wishlist and come back later to get what you need.
 
-### Special Event Appraching?
+### Don't know what to get someone?
 
 - With Yokai, simply Register or Login, vist your profile, Create a new Wishlist and start adding the products you love!
 
@@ -31,9 +31,10 @@
 
 ## Creation
 
-- The team dedicated days to designing and developing our webpage from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi! 
+- The team dedicated days to designing and developing our webpage, from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi! 
 
-- This development ranged from styling the website utilizing React, Bootstrap, and Javascript.
+- This development ranged from styling the website utilizing React, Vite, Bootstrap and Javascript.
+- The backend is structured using an express server, GraphQL and Mongodb.
 
 ## Usage
 
