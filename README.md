@@ -42,9 +42,11 @@
 
 - ***Below are images of the finished site.***
 
-![Alt text](./images/Screenshot%202023-09-24%20230917.png)
+![Yokai Home Page](./assets/images/homepage.png)
 
-![Alt text](./images/Screenshot%202023-09-24%20231020.png)
+![Yokai Register](./assets/images/register.png)
+
+![Yokai Profile](./assets/images/profile.png)
 
 ## License
 
