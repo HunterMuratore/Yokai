@@ -4,6 +4,8 @@
 
 ## [Link to Yokai]()
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ## Welcome to Yokai
 
 ### How can we help?
@@ -25,6 +27,7 @@
 - [Usage](#usage)
 - [License](#license)
 - [Features](#features)
+- [Questions](#questions)
 
 ## Creation
 
@@ -63,6 +66,16 @@
 - The text box to the right asks you to enter trip duration. For ex. 9/24/23-9/29/23. There are no restrictions within this text box.  
 
 - The other two segments of the page outside of the interactive map appear blank at first until the user has picked a location / trip duration. The block underneath the map is where all of the location selections are recorded {as mentioned above} along with the actual temperature and what it feels like. The segment to the right of the interactive map saves previous searches.
+
+## Questions
+
+If you have an questions about the app or would like to contribute in any way please feel free to reach out to me!
+
+Email:
+>[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
+
+GitHub account:
+>[https://github.com/HunterMuratore](https://github.com/HunterMuratore)
 
 ---
 DON'T FORGET YOUR CHARGERS! :sweat_smile:
