@@ -1,6 +1,6 @@
 # Yokai
 
-## [Link to Yokai]()
+## [Link to Yokai](https://nameless-mesa-64050-dec54f78b1de.herokuapp.com/)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -29,7 +29,7 @@
 
 ## Creation
 
-- The team dedicated days to designing and developing our webpage, from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi! 
+- The team dedicated days to designing and developing our webpage, from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi!
 
 - This development ranged from styling the website utilizing React, Vite, Bootstrap and Javascript.
 - The backend is structured using an express server, GraphQL and Mongodb.
@@ -78,4 +78,3 @@ GitHub account:
 
 ---
 DON'T FORGET YOUR CHARGERS! :sweat_smile:
----
