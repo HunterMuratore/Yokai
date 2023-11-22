@@ -58,13 +58,17 @@
 
 - After you be presented with the fully functional site ready to be used by the consumer.
 
-- You are shown two text boxes, each one having their own function.
+- After registering or logging in the Home Page will be shown, a coursel of images will be at the top of the page and right below it, will be Wishlists created by users.
 
-- The text box to the left asks you to enter a destination. For ex: Miami, FL, US. It is important to note that you may add more than one destination here and the box under the interactive map will keep score of all of the searches made by the user.
+- If you yourself would like to create a Wishlist, with your account logged in, you can navigate to your profile in the header of the page.
+    - Once on your profile, you will be shown your placeholder profile picture, a welcome message with your username you have created, and a button to create a Wishlist.
+    - After you set the name to your Wishlist, you can see below a drop down menu, there you can see categories, once you have picked a category, you can see products avaliable to save in your Wishlist.
 
-- The text box to the right asks you to enter trip duration. For ex. 9/24/23-9/29/23. There are no restrictions within this text box.  
+- Have more than one Wishlist? No problem! If you like a product for a specifc Wishlist, when you click on Add Product, it will show you all the Wishlists you have created and you can select which Wishlist you would like to save it to.
 
-- The other two segments of the page outside of the interactive map appear blank at first until the user has picked a location / trip duration. The block underneath the map is where all of the location selections are recorded {as mentioned above} along with the actual temperature and what it feels like. The segment to the right of the interactive map saves previous searches.
+- Want to give your profile a more personal look? Well all you have to do is click on the stock profile image we set for you and you can upload an image and set it to your profile!
+
+- After setting your profile picture, you can fully navigate the page and use it to never miss a gift ever again!
 
 ## Questions
 
@@ -72,15 +76,18 @@ If you have an questions about the app or would like to contribute in any way pl
 
 Developer's Email:
 >[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
+>
+>[kevcastro325@gmail.com](mailto:kevcastro325@gmail.com?subject=[GitHub]%20Yokai)
 
 Developer's Portfolios:
 >[huntermuratore.com](https://huntermuratore.com)
 
->[jacobhoefer.com](https://huntermuratore.com)
+>[Jacob Hoefer's Github](https://github.com/GendySparrowhawk/Jacob_H_Portfolio)
 
->[andrewopitz.com](https://huntermuratore.com)
+>[Andrew Optiz's Github](https://github.com/andrew-opitz)
 
->[kevincastro.com](https://huntermuratore.com)
+>[Kevin Castro Portfolio](https://kevincastro.netlify.app/)
 
 ---
-DON'T FORGET YOUR CHARGERS! :sweat_smile:
+DON'T FPOGET A GIFT EVER AGAIN! :gift:
+---
