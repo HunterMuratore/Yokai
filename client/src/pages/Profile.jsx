@@ -152,11 +152,11 @@ function Profile() {
       {!user ? toLogin() : (
         <section className="profile">
 
-          {/* <div className="d-flex mx-auto">
+          <div className="d-flex mx-auto">
             {showProfileImageUpload && (
               <ProfileImageUpload onUpload={handleProfileImageUpload} />
             )}
-          </div> */}
+          </div>
 
           <div className="profile-picture d-flex justify-content-center my-5">
             {/* If user has no profile pic in db then set this */}
