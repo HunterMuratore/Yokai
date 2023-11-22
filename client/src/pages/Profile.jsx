@@ -82,6 +82,9 @@ function Profile() {
 
   useEffect(() => {
     fetchCategories()
+    if (user) {
+      console.log(user);
+    }
   }, [])
 
   useEffect(() => {
@@ -157,7 +160,7 @@ function Profile() {
 
           <div className="profile-picture d-flex justify-content-center my-5">
             {/* If user has no profile pic in db then set this */}
-            <img onClick={toggleProfileImageUpload} src={profilePic} alt="Profile Picture" />
+            <img onClick={toggleProfileImageUpload} src={user.profilePicture ? user.profilePicture : profilePic} alt="Profile Picture" />
           </div>
 
           <h1 className="font-weight-bold mt-4 mb-4 text-center">{user.username}'s Wishlists</h1>

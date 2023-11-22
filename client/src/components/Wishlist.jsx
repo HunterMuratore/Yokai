@@ -99,6 +99,7 @@ function Wishlist({ handleClose, userId }) {
       showAlert("Wishlist Deleted! Congrats?")
       refetch()
     } catch (error) {
+      console.log(error);
       showAlert("Failed to delete wishlist, this is for the best")
     }
   }

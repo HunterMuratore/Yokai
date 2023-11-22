@@ -7,7 +7,7 @@ import Alert from './Alert'
 const UPLOAD_PROFILE_PICTURE = gql`
   mutation uploadProfilePicture(
     $id: ID!,
-    $profilePicture: Picture!
+    $profilePicture: Upload!
   ) {
     uploadProfilePicture (
       id: $id,
@@ -39,29 +39,26 @@ function ProfileImageUpload({ onUpload }) {
     };
 
     const handleUpload = async () => {
-        fetch('/test').then(res => res.text())
-            .then(data => console.log(data))
+        try {
+            if (!selectedImage) {
+                showAlert('No Image Selected!')
+                return;
+            }
 
-        // try {
-        //     if (!selectedImage) {
-        //         showAlert('No Image Selected!')
-        //         return;
-        //     }
+            console.log(selectedImage)
+            const { data } = await uploadProfilePicture({
+                variables: {
+                    id: user._id,
+                    profilePicture: selectedImage,
+                },
+            });
 
-        //     console.log(selectedImage)
-        //     const { data } = await uploadProfilePicture({
-        //         variables: {
-        //             id: user._id,
-        //             profilePicture: selectedImage,
-        //         },
-        //     });
-
-        //     // if (data && data.uploadProfilePicture) {
-        //     //     onUpload(data.uploadProfilePicture);
-        //     // }
-        // } catch (error) {
-        //     console.error('Error uploading profile picture:', error);
-        // }
+            // if (data && data.uploadProfilePicture) {
+            //     onUpload(data.uploadProfilePicture);
+            // }
+        } catch (error) {
+            console.error('Error uploading profile picture:', error);
+        }
     };
 
     return (

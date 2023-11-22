@@ -21,6 +21,7 @@ const AUTHENTICATE = gql`
       _id
       email
       username
+      profilePicture
       wishlists {
         _id
         name
@@ -49,7 +50,7 @@ function App() {
       ) : (
         <>
           <Header />
-          
+
           <Container>
             <Routes>
               <Route path='/' element={<Home />}></Route>

@@ -26,7 +26,10 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 })
 
 const httpLink = new createUploadLink({
-  uri: '/graphql'
+  uri: '/graphql',
+  headers: {
+    'Apollo-Require-Preflight': 'true',
+  }
 })
 
 const client = new ApolloClient({

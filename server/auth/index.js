@@ -9,12 +9,12 @@ async function createToken(user_id) {
         return token;
 
     } catch (err) {
-        console.log(err.message);
+        console.log('jwt create error', err.message);
     }
 }
 
 // Send the user's cookie through for every request that they make
-async function authenticate({req, res}) {
+async function authenticate({ req, res }) {
     const token = req.cookies.token;
 
     if (!token) return { res };
