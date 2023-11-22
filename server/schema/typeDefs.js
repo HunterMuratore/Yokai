@@ -1,6 +1,8 @@
 const gql = String.raw;
 
 const typeDefs = gql`
+    scalar Upload
+
     type Wishlist {
         _id: ID
         name: String
@@ -25,12 +27,6 @@ const typeDefs = gql`
         price: Int
     }
 
-    input Picture {
-        filename: String
-        mimetype: String
-        encoding: String 
-    }
-
     type Query {
         authenticate: User
         getWishlists: [Wishlist]
@@ -44,7 +40,7 @@ const typeDefs = gql`
         register(email: String!, username: String!, password: String!): User
         login(identifier: String!, password: String!): User
         logout: String
-        uploadProfilePicture(id: ID!, profilePicture: Picture!): User
+        uploadProfilePicture(id: ID!, profilePicture: Upload!): User
         createWishlist(name: String!): Wishlist
         updateWishlist(id: ID!, name: String!): Wishlist
         deleteWishlist(id: ID!): Wishlist

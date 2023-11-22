@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { useStore } from '../store'
 
+import { AUTHENTICATE } from '../App';
+
 import Alert from './Alert'
 
 const UPLOAD_PROFILE_PICTURE = gql`
   mutation uploadProfilePicture(
     $id: ID!,
-    $profilePicture: Picture!
+    $profilePicture: Upload!
   ) {
     uploadProfilePicture (
       id: $id,
@@ -18,11 +20,13 @@ const UPLOAD_PROFILE_PICTURE = gql`
   }
 `
 
-function ProfileImageUpload({ onUpload }) {
+function ProfileImageUpload({ onUpload, toggle }) {
     const { user } = useStore()
     const [selectedImage, setSelectedImage] = useState(null);
     const [alertMessage, setAlertMessage] = useState("")
-    const [uploadProfilePicture] = useMutation(UPLOAD_PROFILE_PICTURE);
+    const [uploadProfilePicture] = useMutation(UPLOAD_PROFILE_PICTURE, {
+        refetchQueries: [ AUTHENTICATE ]
+    });
 
     const showAlert = (message) => {
         setAlertMessage(message)
@@ -39,29 +43,24 @@ function ProfileImageUpload({ onUpload }) {
     };
 
     const handleUpload = async () => {
-        fetch('/test').then(res => res.text())
-            .then(data => console.log(data))
+        try {
+            if (!selectedImage) {
+                showAlert('No Image Selected!')
+                return;
+            }
 
-        // try {
-        //     if (!selectedImage) {
-        //         showAlert('No Image Selected!')
-        //         return;
-        //     }
+            const { data } = await uploadProfilePicture({
+                variables: {
+                    id: user._id,
+                    profilePicture: selectedImage,
+                },
+            });
 
-        //     console.log(selectedImage)
-        //     const { data } = await uploadProfilePicture({
-        //         variables: {
-        //             id: user._id,
-        //             profilePicture: selectedImage,
-        //         },
-        //     });
-
-        //     // if (data && data.uploadProfilePicture) {
-        //     //     onUpload(data.uploadProfilePicture);
-        //     // }
-        // } catch (error) {
-        //     console.error('Error uploading profile picture:', error);
-        // }
+            toggle(false)
+            
+        } catch (error) {
+            console.error('Error uploading profile picture:', error);
+        }
     };
 
     return (

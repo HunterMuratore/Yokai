@@ -1,4 +1,7 @@
 const User = require('../../models/User');
+const path = require('path');
+const fs = require('fs');
+const { v4 } = require('uuid');
 
 const { createToken } = require('../../auth');
 
@@ -17,7 +20,7 @@ const user_resolvers = {
             } catch (err) {
                 throw new Error('could not get user')
             }
-        } 
+        }
     },
 
     Mutation: {
@@ -79,30 +82,39 @@ const user_resolvers = {
             } catch (err) {
                 throw new Error(err)
             }
-        },     
-        
+        },
+
         logout(_, __, context) {
             context.res.clearCookie('token');
 
             return 'User logged out successfully'
         },
 
-        async uploadProfilePicture(_, args) {
-            const { id, profilePicture } = args;
+        async uploadProfilePicture(_, args, { user }) {
+            const { profilePicture } = args;
 
-            console.log('Profile Pic String:', profilePicture);
-            
-            try {
-                const { createReadString, name } = await profilePicture;
+            const { file: { createReadStream, filename } } = await profilePicture;
 
-                console.log(name)
-                // const user = await User.findByIdAndUpdate(id, { profilePicture }, { new: true });
+            // Create a readable stream from the uploaded file
+            const readStream = createReadStream();
 
-                // return user;
-                
-            } catch (err) {
-                console.log(err);
-            }
+            // Specify the path where the file should be stored within the public directory
+            const hash = v4();
+            const name = `${hash}.${filename}`;
+            const filePath = path.join(__dirname, '../../public/profile_images', name);
+
+            // Create a writable stream to the specified file path
+            const writeStream = fs.createWriteStream(filePath);
+
+            // Pipe the data from the readable stream to the writable stream
+            readStream.pipe(writeStream);
+
+            await User.findOneAndUpdate({ _id: user._id }, {
+                profilePicture: `/profile_images/${name}`
+            });
+
+            // Return the file path where the image is stored
+            return filePath;
         }
     }
 }

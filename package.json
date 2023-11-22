@@ -26,5 +26,8 @@
   "homepage": "https://github.com/HunterMuratore/yokai#readme",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "graphql-upload": "^14.0.0"
   }
 }
