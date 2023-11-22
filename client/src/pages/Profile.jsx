@@ -154,7 +154,7 @@ function Profile() {
 
           <div className="d-flex mx-auto">
             {showProfileImageUpload && (
-              <ProfileImageUpload onUpload={handleProfileImageUpload} />
+              <ProfileImageUpload onUpload={handleProfileImageUpload} toggle={toggleProfileImageUpload}/>
             )}
           </div>
 

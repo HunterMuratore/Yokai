@@ -18,7 +18,7 @@ const UPLOAD_PROFILE_PICTURE = gql`
   }
 `
 
-function ProfileImageUpload({ onUpload }) {
+function ProfileImageUpload({ onUpload, toggle }) {
     const { user } = useStore()
     const [selectedImage, setSelectedImage] = useState(null);
     const [alertMessage, setAlertMessage] = useState("")
@@ -45,7 +45,6 @@ function ProfileImageUpload({ onUpload }) {
                 return;
             }
 
-            console.log(selectedImage)
             const { data } = await uploadProfilePicture({
                 variables: {
                     id: user._id,
@@ -53,9 +52,7 @@ function ProfileImageUpload({ onUpload }) {
                 },
             });
 
-            // if (data && data.uploadProfilePicture) {
-            //     onUpload(data.uploadProfilePicture);
-            // }
+            toggle(false)
         } catch (error) {
             console.error('Error uploading profile picture:', error);
         }
