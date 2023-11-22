@@ -10,7 +10,7 @@ import { StoreProvider } from './store.jsx'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { ApolloClient, ApolloLink, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client'
-import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
+// import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
 import { onError } from '@apollo/client/link/error'
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -33,7 +33,7 @@ const httpLink = new createUploadLink({
 })
 
 const client = new ApolloClient({
-  link: ApolloLink.from([errorLink, httpLink]),
+  link: errorLink.concat(httpLink),
   cache: new InMemoryCache()
 })
 

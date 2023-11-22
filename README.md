@@ -1,22 +1,22 @@
 # Yokai
 
----
+## [Link to Yokai](https://nameless-mesa-64050-dec54f78b1de.herokuapp.com/)
 
-## [Link to Yokai]()
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Welcome to Yokai
 
 ### How can we help?
 
-- Yokai arms consumers with easy to access wishlists of other uses and also products to add to their very own! You'll easily navigate throught Yokai to make an account for yourself begin making those easy to access lists you can always come back to.
+- Yokai arms consumers with easy to access wishlists of other uses and also products to add to their very own! You'll easily navigate throught Yokai to make an account for yourself and begin making those easy to access lists you can always come back to.
 
 - Not ready to pull the trigger on a product just yet? Don't worry, you can save them on your Wishlist and come back later to get what you need.
 
-### Special Event Appraching?
+### Don't know what to get someone?
 
 - With Yokai, simply Register or Login, vist your profile, Create a new Wishlist and start adding the products you love!
 
-- Not sure what to buy someone? No worries! Ask them to join Yokai, create an account , and make a Wishlist!
+- Not sure what to buy someone? No worries! Ask them to join Yokai, create an account, and make a Wishlist!
 - After they have saved a couple of products, you can navigate to the home page and you will see their Wishlist below the coursel.
 
 ## Table of Contents
@@ -25,24 +25,26 @@
 - [Usage](#usage)
 - [License](#license)
 - [Features](#features)
+- [Questions](#questions)
 
 ## Creation
 
-- The team dedicated days to designing and developing our webpage from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi! 
+- The team dedicated days to designing and developing our webpage, from beginning stages to a full stack website ready to be used universally by anyone with an electronic device and wifi!
 
-- This development ranged from styling the website utilizing React, Bootstrap, and Javascript.
+- This development ranged from styling the website utilizing React, Vite, Bootstrap and Javascript.
+- The backend is structured using an express server, GraphQL and Mongodb.
 
 ## Usage
 
-- For instructions on usage of the site, refer to the Features tab down below.
-
-- *Click on Features in Table of Contents*
+- For instructions on usage of the site, refer to the [Features](#features) tab down below.
 
 - ***Below are images of the finished site.***
 
-![Alt text](./images/Screenshot%202023-09-24%20230917.png)
+![Yokai Home Page](./assets/images/homepage.png)
 
-![Alt text](./images/Screenshot%202023-09-24%20231020.png)
+![Yokai Register](./assets/images/register.png)
+
+![Yokai Profile](./assets/images/profile.png)
 
 ## License
 
@@ -64,6 +66,15 @@
 
 - The other two segments of the page outside of the interactive map appear blank at first until the user has picked a location / trip duration. The block underneath the map is where all of the location selections are recorded {as mentioned above} along with the actual temperature and what it feels like. The segment to the right of the interactive map saves previous searches.
 
+## Questions
+
+If you have an questions about the app or would like to contribute in any way please feel free to reach out to us!
+
+Email:
+>[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
+
+GitHub account:
+>[https://github.com/HunterMuratore](https://github.com/HunterMuratore)
+
 ---
 DON'T FORGET YOUR CHARGERS! :sweat_smile:
----

@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 
 const { ApolloServer } = require('@apollo/server');
-const { expressMiddleware, up } = require('@apollo/server/express4');
+const { expressMiddleware } = require('@apollo/server/express4');
 const { graphqlUploadExpress } = require('graphql-upload');
 
 const app = express();
