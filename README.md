@@ -38,9 +38,7 @@
 
 ## Usage
 
-- For instructions on usage of the site, refer to the Features tab down below.
-
-- *Click on Features in Table of Contents*
+- For instructions on usage of the site, refer to the [Features](#features) tab down below.
 
 - ***Below are images of the finished site.***
 
