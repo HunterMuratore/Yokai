@@ -76,7 +76,7 @@ If you have an questions about the app or would like to contribute in any way pl
 
 Developer's Email:
 >[muratoreh@gmail.com](mailto:muratoreh@gmail.com?subject=[GitHub]%20Yokai)
->
+
 >[kevcastro325@gmail.com](mailto:kevcastro325@gmail.com?subject=[GitHub]%20Yokai)
 
 Developer's Portfolios:
@@ -89,5 +89,5 @@ Developer's Portfolios:
 >[Kevin Castro Portfolio](https://kevincastro.netlify.app/)
 
 ---
-DON'T FPOGET A GIFT EVER AGAIN! :gift:
+DON'T FORGET A GIFT EVER AGAIN! :gift:
 ---
