@@ -40,11 +40,8 @@
 
 - ***Below are images of the finished site.***
 
-![Yokai Home Page](./assets/images/homepage.png)
-
-![Yokai Register](./assets/images/register.png)
-
-![Yokai Profile](./assets/images/profile.png)
+[![Yokai Demo Video](https://img.youtube.com/vi/rM9J4hLN2Mk/maxresdefault.jpg)](https://youtu.be/rM9J4hLN2Mk)
+>Click the image to be taken to this app's demo video on youtube
 
 ## License
 
